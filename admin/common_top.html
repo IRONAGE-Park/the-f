@@ -1,0 +1,46 @@
+<? require_once($_SERVER['DOCUMENT_ROOT']."$PATH_INFO/admin/common_head.html"); ?>
+<?php
+    $left_Div = explode("/",$_SERVER["PHP_SELF"]);
+    $left_DivCnt = count($left_Div);
+    $left_name = $left_Div[$left_DivCnt-1];
+    $left_number = substr($left_name,5,1);
+    $left_number2 = substr($left_name,5,3);
+?>
+
+<body>
+	<!-- 탑메뉴부분 시작 -->
+	<div class="admin-manage">
+		<table class="admin-manage-header" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="right" width="160">
+					<a href="/admin"><img style="padding: 10px 20px" src="../img/logo/Logo_8.svg"></a>
+				</td>
+				<td align="right">
+					<font><?=$SITE_ADMIN_NAME?>님 환영합니다.</font>
+				</td>
+				<td>
+					<div align="right">
+						<a class="admin-button" href="<?=$HOME_PATH?>/admin/admin1_1_sub1.html?uid=<?=$memberinfo['uid']?>">정보수정</a>
+						<a class="admin-button" href="#" id="admin_logout">로그아웃</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<!-- 탑메뉴부분 끝 -->
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$("#admin_logout").click(function () {
+					$.ajax({
+						type: "POST"
+						, url: "/INC/adminlogin_ajax1.php"
+						, dataType: "JSON"
+						, data: "mode=logout"
+						, success: function (res) {
+							if (res.code == "1") {
+								location.replace("<?=$PATH_INFO?>/admin/admin_login.html");
+							}
+						}
+					});
+				});
+			});
+		</script>

@@ -1,0 +1,87 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title><?=$SiteName?>The-F 관리자</title>
+	<link rel="stylesheet" href="<?=$PATH_INFO?>/admin/css/admin.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script type="text/javascript" src="<?=$PATH_INFO?>/js/head.js"></script>
+	<script type="text/javascript" src="<?=$PATH_INFO?>/admin/js/login.js"></script>
+	<script type="text/javascript" src="<?=$PATH_INFO?>/ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+	<div id="signin">
+		<div style="padding: 0 100px;" class="form-image"><img src="../img/logo/Logo_8.svg" /></div>
+		<div class="form-title">관리자 로그인</div>
+		<div class="input-field">
+			<input id="email" name="GetId" type="text" autocomplete="off" tabindex=1 />
+			<i class="material-icons">email</i>
+			<label for="email">아이디</label>
+		</div>
+		<div class="input-field">
+			<input type="password" id="password" name="GetPw" tabindex=2 />
+			<i class="material-icons">lock</i>
+			<label for="password">비밀번호</label>
+		</div>
+		<button id="loginSubmit" class="login">로그인</button>
+		<div class="check">
+			<i class="material-icons">check</i>
+		</div>
+	</div>
+</body>
+
+</html>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("input").on('focusout', function () {
+			$(this).each(function (i, e) {
+				if ($(e).val() != "") {
+					$(e).addClass('not-empty');
+				} else {
+					$(e).removeClass('not-empty');
+				}
+			});
+		});
+		$("#loginSubmit").click(function () { loginProcess(); });
+		$('#signin').on('keypress', function (e) {
+			if (e.which == 13) { loginProcess(); }
+		});
+		loginProcess = function () {
+			var v1 = $('input[name="GetId"]').val(); var v2 = $('input[name="GetPw"]').val();
+			var v3 = $(":input:radio[name=mtype]:checked").val()
+			if (!v1) {
+				swal("아이디를 입력해주세요.", '', 'error');
+				return false;
+			}
+			if (!v2) {
+				swal("비밀번호를 입력해주세요.", '', 'error');
+				return false;
+			}
+			$.ajax({
+				type: "POST"
+				, url: "/INC/adminlogin_ajax1.php"
+				, dataType: "JSON"
+				, data: "mode=login&session_id=<?=$_SESSION['Session_ID']?>&v1=" + v1 + "&v2=" + v2 + "&mtype=" + v3
+				, success: function (res) {
+					if (res.code != "0") {
+						$(".check").addClass('in');
+						$('.login').animate({
+							fontSize: 0
+						}, 1000, function () {
+							location.href ="/admin/index.html";
+						});
+					} else {
+						swal("입력하신 아이디 또는 비밀번호가 잘못 되었습니다.", '', 'error');
+						console.log(res);
+						return false;
+					}
+				}
+			});
+		}
+
+	});
+</script>

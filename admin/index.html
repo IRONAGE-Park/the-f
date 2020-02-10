@@ -1,0 +1,63 @@
+<?php
+
+@extract($_GET); 
+@extract($_POST);
+if (!$bmain) $bmain = "list";
+if (!$c_name) $c_name = "board";
+$doc_root = $_SERVER['DOCUMENT_ROOT'];
+require_once($doc_root."/INC/get_session.php");
+require_once($doc_root."/INC/dbConn.php");
+require_once($doc_root."/INC/Function.php");
+require_once($doc_root."/INC/arr_data.php");
+require_once($doc_root."/INC/func_other.php");
+require_once($doc_root."/INC/down.php");			//파일 다운로드
+
+$url=$_SERVER["PHP_SELF"];
+$file_arr=explode("/",$url);
+$file_path=$file_arr[sizeof($file_arr)-1];
+$file_path_1=$file_arr[sizeof($file_arr)-2];
+######### 상단 메뉴 ############
+include ('common_top.html');
+
+########## 게시판 설정파일 #########
+include "./conf/conf_${c_name}.php";
+$conf = preg_replace("/([0-9])+$/", "", $c_name); // pro1, board1같은 경우의 뒤에 숫자 제거
+?>
+
+
+<!-- 본문타이틀바부분 시작 -->
+  <table class="admin-manage-title" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="left" class="admin-manage-ptitle">
+        <font style="width: 100%; padding-left: 10px;">홈페이지 관리</font>
+      </td>
+      <td align="center" class="admin-manage-btitle">
+        <font><?=$board_title?></fon>
+      </td>
+    </tr>
+  </table>
+  <!-- 본문타이틀바부분 끝 -->
+  <table class="admin-manage-content" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="admin-manage-sidebar">
+        <!-- 왼쪽서브메뉴부분 시작 -->
+        <?
+          ######### 왼쪽 메뉴 ############
+          include ('common_left.html');
+        ?>
+        <!-- 왼쪽서브메뉴부분 끝 -->
+      </td>
+      <td class="admin-manage-view-wrap">
+        <!-- 게시판 가지고 온다  -->
+        <table class="admin-manage-view" width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+              <?include "./".preg_replace("/([0-9])+$/", "", $c_name)."${bmain}.php";?>
+            </td>
+          </tr>
+        </table>
+        <!-- 본문컨텐츠부분 끝 -->
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,48 @@
+<?php include "../INC/new_header.php"; ?>
+<? require_once("$ROOT_PATH/sadmin/common_head.html"); ?>
+<?	
+@extract($_GET); 
+@extract($_POST); 
+
+########## 게시판 설정파일 #########
+if (!$bmain) $bmain="list";
+	include "./conf/conf_".$conf.".php";
+?>
+<!-- ====== 프로젝트 댓글 아이프레임 =============== -->
+
+<script type="text/javascript">
+function frameResize(val) {
+	eval("parent.window.document.all.boardmemo_"+val+".height = parent.board1_"+val+".document.body.scrollHeight+10;");
+	return;
+}
+</script>
+
+<script language="JavaScript">
+	function init2(){
+		var doc = document.getElementById("mainContent2");
+		if(doc.offsetHeight != 0){
+			pageheight = doc.offsetHeight;
+			parent.document.getElementById("boardmemo_1").height = pageheight+"px";
+		}
+	}
+	window.onload = function(){
+		init2();
+	}
+</script>
+
+
+<body style="background:none; width:857px;text-align:left;" >
+<div id="mainContent2">
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align=center>					
+<tr>
+	<td>					
+	<? include "./memo${bmain}.php";?>
+	</td>
+	</tr>
+</table>
+
+
+</div>
+</body>
+</html>

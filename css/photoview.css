@@ -1,0 +1,200 @@
+/* .carousel-indicators {
+    width: auto;
+    margin: 0;
+    padding: 3px;
+    padding-bottom: 0;
+    border-radius: 20px;
+} */
+.content-view-box {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.content-view-wrap {
+    z-index: 1;
+}
+.content-view-image {
+    width: 960px;
+}
+.content-view-image-box {
+    text-align: center;
+    width: 100%;
+    height: 640px;
+    border: solid 1px #000;
+}
+.content-view-image-element {
+    width: 960px;
+    height: 640px !important;
+}
+.content-view-text {
+    width: 300px;
+}
+.content-view-text-wrap {
+    color: #000;
+    padding: 10px;
+    width: 300px;
+    height: 620px;
+    background-color: #fff;
+    border: solid 1px #000;
+}
+.content-view-text-title {
+    display: table-cell;
+    font-size: 20px;
+    width: 100%; height: 100px;
+    vertical-align: middle;
+}
+.content-view-product {
+    width: 100%;
+}
+.content-view-product-element {
+    display: inline-block;
+    padding: 10px;
+}
+.portfolio-wrap {
+    position: relative;
+    width: 95%;
+    border: solid 1px #666;
+    margin: 10px auto;
+    opacity: 0.5;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+.portfolio-wrap:hover { opacity: 1; }
+.portfolio-wrap:hover .portfolio-title { transform: translateX(0); }
+.portfolio-element:hover { text-decoration: none; }
+.portfolio-title {
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    height: 20px;
+    top: 0;
+    bottom: 0;
+    left: 20%;
+    margin: auto;
+    font-size: 20px;
+    background-color: #fff;
+    transition: all 0.4s ease-in-out;
+    transform: translateX(100%);
+}
+.not-found {
+    padding: 50px;
+    font-weight: 100;
+    text-align: center;
+    font-size: 36px;
+    opacity: 0.3;
+}
+.content-view-product-image {
+    width: 260px;
+}
+@media (max-width: 1300px) {
+    .content-view-image {
+        width: 720px;
+    }
+    .content-view-image-box {
+        text-align: center;
+        width: 100%;
+        height: 540px;
+        border: solid 1px #000;
+    }
+    .content-view-image-element {
+        width: 720px;
+        height: 540px !important;
+    }
+    .content-view-text {
+        width: 250px;
+    }
+    .content-view-text-wrap {
+        color: #000;
+        padding: 10px;
+        width: 250px;
+        height: 520px;
+        background-color: #fff;
+        border: solid 1px #000;
+    }
+}
+
+@media (max-width: 1024px) {
+    .list_tit {
+        font-size: 36px;
+    }
+    .content-view-image {
+        width: 640px;
+    }
+    .content-view-image-box {
+        text-align: center;
+        width: 100%;
+        height: 480px;
+        border: solid 1px #000;
+    }
+    .content-view-image-element {
+        width: 640px;
+        height: 480px !important;
+    }
+    .content-view-text {
+        width: 250px;
+    }
+    .content-view-text-wrap {
+        color: #000;
+        padding: 10px;
+        width: 250px;
+        height: 460px;
+        background-color: #fff;
+        border: solid 1px #000;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-area {
+        width: 100%;
+        display: block;
+    }
+    .list_tit {
+        font-size: 24px;
+    }
+    .content-view-image {
+        width: 90%;
+        padding-top: 10%;
+        display: block;
+        margin:auto;
+    }
+    .content-view-image-box {
+        text-align: center;
+        width: 100%;
+        height: auto !important;
+        border: solid 1px #000;
+    }
+    .content-view-image-element {
+        width: 100%;
+        height: auto !important;
+    }
+    .content-view-text {
+        width: 90%;
+        display: block;
+        margin:auto;
+        padding-bottom: 10%;
+    }
+    .content-view-text-wrap {
+        color: #000;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        background-color: #fff;
+        border: solid 1px #000;
+    }
+    .content-view-box {
+        height: 100%;
+    }
+    .content-view-text-title {
+        display: table-cell;
+        font-size: 15px;
+        padding-left: 10px;height: 5em;
+        vertical-align: middle;
+    }
+    .content-view-text-content {
+        font-size: 12px;
+        padding-left: 10px;height: 5em;
+        vertical-align: middle;
+    }
+}

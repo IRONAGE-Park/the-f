@@ -1,0 +1,23 @@
+.product-list-nav {
+	padding-top: 40px;
+	width: 100%;
+}
+.product-list-nav-element {
+	padding: 10px 0;
+	border: solid 2px #f8f8f8;
+	border-top: solid 2px grey;
+	text-align: center;
+	background-color: #F8F8F8;
+}
+.selected.product-list-nav-element {
+	background-color: #fff;
+	border-left: solid 2px grey;
+	border-right: solid 2px grey;
+}
+.PL {
+	transition: all 0.5s;
+}
+.material-title {
+    font-size: 24px;
+    color: black;
+}
