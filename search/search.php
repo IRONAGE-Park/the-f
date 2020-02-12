@@ -1,4 +1,4 @@
-<?php include "../inc/header.php"; ?>
+<?php include "../INC/header.php"; ?>
 <div class="search-body">
 	<div class="search-body-wrap">
 		<div class="search-body-query">
@@ -85,4 +85,4 @@
 		</table>
 	</div>
 </div>
-<?php include "../inc/footer.php"; ?>
+<?php include "../INC/footer.php"; ?>

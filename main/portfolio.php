@@ -1,4 +1,4 @@
-<?php include "../inc/header.php"; ?>
+<?php include "../INC/header.php"; ?>
 <?
 ########## �Խ��Ǽ������� #########
 if (!$bmain) $bmain="list";
@@ -22,4 +22,4 @@ include "../admin/conf/conf_post.php";
 		</td>
 	</tr>
 </table>
-<?php include "../inc/footer.php"; ?>
+<?php include "../INC/footer.php"; ?>

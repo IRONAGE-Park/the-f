@@ -1,4 +1,4 @@
-<?php include "../inc/header.php"; ?>
+<?php include "../INC/header.php"; ?>
 <?
 if (!$bmain) $bmain="list";
 $code = 8;
@@ -92,4 +92,4 @@ include "../admin/conf/conf_main.php";
 	</table>
     </tr>
 </table>
-<?php include "../inc/footer.php"; ?>
+<?php include "../INC/footer.php"; ?>

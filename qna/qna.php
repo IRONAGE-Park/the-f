@@ -1,4 +1,4 @@
-<?php include "../inc/header.php"; ?>
+<?php include "../INC/header.php"; ?>
 <?
 ########## 게시판설정파일 #########
 if (!$bmain) $bmain="list";
@@ -46,4 +46,4 @@ include "../admin/conf/conf_board.php";
 	</td>
  </tr>
 </table>
-<?php include "../inc/footer.php"; ?>
+<?php include "../INC/footer.php"; ?>

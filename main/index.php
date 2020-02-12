@@ -1,4 +1,4 @@
-<?php include "../inc/header.php"; ?>
+<?php include "../INC/header.php"; ?>
 <?
 	#### 레이어 팝업 창 ##########
 	//$pop_wsql = " and mode='1'";
@@ -29,4 +29,4 @@
  </tr>
 
 </table>
-<?php include "../inc/footer.php"; ?>
+<?php include "../INC/footer.php"; ?>
