@@ -1,18 +1,18 @@
 <?
-	require_once($doc_root."/INC/get_session.php");
-	require_once($doc_root."/INC/dbConn.php");
-	require_once($doc_root."/INC/Function.php");
-	require_once($doc_root."/INC/arr_data.php");
-	require_once($doc_root."/INC/func_other.php");
-	require_once($doc_root."/INC/down.php");			//파일 다운로드
+@extract($_GET); 
+@extract($_POST);
+	require_once("../INC/get_session.php");
+	require_once("../INC/dbConn.php");
+	require_once("../INC/Function.php");
+	require_once("../INC/arr_data.php");
+	require_once("../INC/func_other.php");
+	require_once("../INC/down.php");			//파일 다운로드
 	require_once("./common_head.html");
 
 ############ 해당 부분 환경 설정 파일 ######
 if($conf) {
 	include "./conf/conf_".$conf.".php";
 }
-
-
 	//인젝션
 	$title		= escape_string($_REQUEST['title'],1);	
 	$sdate		= escape_string($_REQUEST['sdate'],1);	
@@ -27,9 +27,11 @@ if($conf) {
 	if(!$reg_date) $reg_date = date("Y-m-d H:i:s");
 	$stime =  $stime1.":".$stime2;
 
+	echo "<script>".$formmode."</script>";
+	echo "ㅇㅇㅇㅇㅇㅇㅇ";
+
     switch( $formmode ){        
         case 'save' :  
-
 			if(!$title) {
 				$common->error("데이터가 없습니다. 정상적으로 접근해 주세요.","previous","");	
 			}

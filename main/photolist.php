@@ -18,11 +18,6 @@
 	$result = $db->fetch_array( $query );
 	$rcount = count($result) ;
 ?>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-	<tr>
-		<td align="center" class="border-n"><span class="list_tit"><?=$board_title?></span></td>
-	</tr>
-</table>
 <table width="90%" align="center" border="0" cellspacing="0" cellpadding="0">
 	<tbody>
 	<?

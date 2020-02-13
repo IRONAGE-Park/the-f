@@ -1,4 +1,4 @@
-<?php include "../include/header.php"; 
+<?php
 @extract($_GET); 
 @extract($_POST); 
 

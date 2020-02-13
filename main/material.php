@@ -14,6 +14,29 @@ include "../admin/conf/conf_main.php";
 			<td valign="top" class="content">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
+						<!--contents-->
+						<td valign="top" class="content">
+							<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td align="center" class="border-n">
+										<span class="list_tit">
+											<a class="product_menu" href="./product.php">Product</a>
+										</span>
+									</td>
+									<td align="center" class="border-n">
+										<span class="list_tit">
+											<a class="product_menu" href="./material.php">Material</a>
+										</span>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<!--//contents-->
+					</tr>
+				</table>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					
+					<tr>
 						<td align="center"><img class="qna-image" src="../img/visual/visual0<?=$code?>.jpg"></td>
 					</tr>
 					<script>

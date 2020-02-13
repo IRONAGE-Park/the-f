@@ -1,4 +1,7 @@
-<?  require_once("../INC/header.php");
+<?  
+@extract($_GET); 
+@extract($_POST);
+	require_once("../INC/header.php");
 	require_once("./common_head.html");
 
 ############ 해당 부분 환경 설정 파일 ######

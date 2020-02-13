@@ -1,10 +1,13 @@
-/* .carousel-indicators {
-    width: auto;
-    margin: 0;
-    padding: 3px;
-    padding-bottom: 0;
-    border-radius: 20px;
-} */
+.product_menu {
+    text-decoration: none;
+    color: #072a40;
+    opacity: 0.6;
+}
+.product_menu:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: #072a40;
+}
 .content-view-box {
     position: relative;
     width: 100%;
