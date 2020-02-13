@@ -1,3 +1,5 @@
+.qna-search-box { width: 100%; position: relative; }
+.styled { line-height: 50px; font-size: 30px; border: none;}
 .search-wrap {
     position: fixed;
     z-index: 2000;
@@ -60,6 +62,7 @@
 }
 .search-body {
     padding: 20px 0;
+    font-size: 14px;
 }
 .search-body-wrap {
     display: table;
@@ -76,7 +79,7 @@
     display: table-cell;
     width: 99%;
     color: black;
-    font-size: 20px;
+    font-size: 1.4em;
 }
 .search-body-query-sub {
     display: table-cell;
@@ -86,10 +89,10 @@
 }
 .search-body-new { padding: 50px 0; }
 .search-body-new-wrap { padding: 0 50px; }
-.search-body-new-title { padding: 0 0 30px 0; font-weight: 100; font-size: 45px; color: #000; }
+.search-body-new-title { padding: 0 0 30px 0; font-weight: 100; font-size: 2.6em; color: #000; }
 .search-body-new-content { position: relative; }
 .search-request {
-    font-size: 30px;
+    font-size: 2.2em;
     font-weight: 200;
     color: black;
 }
@@ -101,7 +104,7 @@
 .search-body-contain-image { width: 200px; } .search-body-contain-image img { width: 100px; height: 100px; }
 .search-body-contain-text { width: 50%; }
 .search-body-contain-text a { color: #000; } .search-body-contain-text a:hover { text-decoration: none; color: #666; }
-.search-body-contain-title { font-size: 20px; }
+.search-body-contain-title { font-size: 1.4em; }
 .search-body-contain-more {
     width: 100%;
     background-color: #fbfbfb;
@@ -111,7 +114,7 @@
     padding: 0;
     transition: all 0.5s;
 }
-.search-body-contain-more:hover { font-size: 20px; line-height: 50px; }
+.search-body-contain-more:hover { font-size: 1.4em; line-height: 50px; }
 
   #nav-icon {
     width: 100%;
@@ -141,3 +144,16 @@
     -o-transform: rotate(-135deg);
     transform: rotate(-135deg);
   }
+
+
+  
+@media (max-width: 1024px) {
+    .search-body { font-size: 12px; }
+}
+  
+@media (max-width: 768px) {
+    .search-body-query-sub { display: none; }
+    .search-body { font-size: 10px; } 
+    .styled, .search-input { font-size: 20px; line-height: 35px; }
+    .search-submit { top: 7px; }
+}

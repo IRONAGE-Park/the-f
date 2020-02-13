@@ -23,7 +23,8 @@
 		<td align="center" class="border-n"><span class="list_tit"><?=$board_title?></span></td>
 	</tr>
 </table>
-<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+<table width="90%" align="center" border="0" cellspacing="0" cellpadding="0">
+	<tbody>
 	<?
 		if ($rcount == 0) { echo "<div class='not-found'>Sorry, no posts matched your criteria.</div>"; }
         for ( $i=0 ; $i<$rcount ; $i++ ) {			
@@ -77,5 +78,5 @@
 			echo("</tr>");
 		}
 	}?>
-
+	</tbody>
 </table>

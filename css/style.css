@@ -1,7 +1,12 @@
 @charset "utf-8";
 
 /*common*/
-body, td, th { margin:0; font-size: 14px; font-family: 'Noto Serif KR', sans-serif;}
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
+input, button {-webkit-border-radius: 0;-webkit-appearance:none;}
+
+body, td, th { margin:0; font-size: 14px; font-family: 'NanumSquare', sans-serif;}
+body {overflow-x: hidden;}
 img {border: none; vertical-align:middle}
 * { box-sizing: content-box; }
 ul,ol,li {list-style: none;}
@@ -87,13 +92,13 @@ a.file:hover {font-size:14px; text-decoration: underline; color: #ff6600}
 .c333 {color:#333}
 .b {font-weight:bold}
 
-.list_tit {font-size:50px; color:#281a18; font-weight:bold}
-.view_tit {padding:0 0 20px 0; font-size:23px; color:#513430; font-weight:bold; letter-spacing:-2px;}
+.list_tit {font-size:50px; color:#072a40; font-weight:bold}
+.view_tit {padding:0 0 20px 0; font-size:23px; color:#072a40; font-weight:bold; letter-spacing:-2px;}
 .view_cont01 {padding:0 0 0 10px; font-size:13px; color:#666; line-height:160%}
 .view_thumb {padding:40px 0 50px 0}
 .view_detail {padding:30px 0}
 
-.border-b {padding: 0 0 10px 0; border-bottom:solid 1px #281a18}
+.border-b {padding: 0 0 10px 0; border-bottom:solid 1px #072a40}
 .border-n {padding: 40px 0 0px 0;}
 
 /*gnb*/
@@ -150,190 +155,16 @@ a.footer_f01:hover {padding:0 20px 0 0; text-decoration: none; font-size: 13px; 
 .mainBanner .paging .paging_in a.active,.paging a:hover{ background-position:0 -16px}
 
 .visual-wrap{position:relative; height:480px;}
-.visual-wrap .visual-posi-01 {
-	position:absolute; top:0; left:0;
+.visual-wrap img {width: 100%;}
 
-
+.visual-wrap .visual-posi {
+  position:absolute; top:0; left:0; display:none;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+  filter: alpha(opacity=0);
+  -khtml-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
 }
-.visual-wrap .visual-posi-02 {
-	position:absolute; top:0; left:0; display:none;
-	 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
-    filter: alpha(opacity=0);
-    -khtml-opacity: 0;
-    -moz-opacity: 0;
-    opacity: 0;
-	}
-.visual-wrap .visual-posi-03 {
-	position:absolute; top:0; left:0; display:none;
-	 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
-    filter: alpha(opacity=0);
-    -khtml-opacity: 0;
-    -moz-opacity: 0;
-    opacity: 0;
-	}
-
-
-
-
-/**/
-
-/**
- * BxSlider v4.1.2 - Fully loaded, responsive content slider
- * http://bxslider.com
- *
- * Written by: Steven Wanderski, 2014
- * http://stevenwanderski.com
- * (while drinking Belgian ales and listening to jazz)
- *
- * CEO and founder of bxCreative, LTD
- * http://bxcreative.com
- */
-/** RESET AND LAYOUT */
-.bx-wrapper {
-  position: relative;
-  margin: 0 auto;
-  padding: 0;
-}
-.ie7 .bx-wrapper {
-  zoom: 1;
-}
-.bx-wrapper img {
-  max-width: 100%;
-  display: block;
-}
-/** THEME */
-.bx-wrapper .bx-viewport {
-  /*fix other elements on the page moving (on Chrome)*/
-  -webkit-transform: translatez(0);
-  -ms-transform: translatez(0);
-  -o-transform: translatez(0);
-  transform: translatez(0);
-}
-.bx-wrapper .bx-pager,
-.bx-wrapper .bx-controls-auto {
-  position: absolute;
-  bottom: -30px;
-  width: 100%;
-}
-/* LOADER */
-.bx-wrapper .bx-loading {
-  min-height: 50px;
-  background: url(../images/bx_loader.gif) center center no-repeat #ffffff;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2000;
-}
-/* PAGER */
-.bx-wrapper .bx-pager {
-  text-align: center;
-  font-size: .85em;
-  font-family: Arial;
-  font-weight: bold;
-  color: #666;
-  padding-top: 20px;
-}
-.bx-wrapper .bx-pager .bx-pager-item,
-.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
-  display: inline-block;
-}
-.ie7 .bx-wrapper .bx-pager .bx-pager-item,
-.ie7 .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
-  zoom: 1;
-  display: inline;
-}
-.bx-wrapper .bx-pager.bx-default-pager a {
-  background: #fff;
-  text-indent: -9999px;
-  display: block;
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
-  outline: 0;
-  border-radius: 5px;
-}
-.bx-wrapper .bx-pager.bx-default-pager a:hover,
-.bx-wrapper .bx-pager.bx-default-pager a.active {
-  background: #000;
-}
-/* DIRECTION CONTROLS (NEXT / PREV) */
-.bx-wrapper .bx-prev {
-  left: 10px;
-  background: url(../images/controls.png) no-repeat 0 -32px;
-}
-.bx-wrapper .bx-next {
-  right: 10px;
-  background: url(../images/controls.png) no-repeat -43px -32px;
-}
-.bx-wrapper .bx-prev:hover {
-  background-position: 0 0;
-}
-.bx-wrapper .bx-next:hover {
-  background-position: -43px 0;
-}
-.bx-wrapper .bx-controls-direction a {
-  position: absolute;
-  top: 50%;
-  margin-top: -16px;
-  outline: 0;
-  width: 32px;
-  height: 32px;
-  text-indent: -9999px;
-  z-index: 9999;
-}
-.bx-wrapper .bx-controls-direction a.disabled {
-  display: none;
-}
-/* AUTO CONTROLS (START / STOP) */
-.bx-wrapper .bx-controls-auto {
-  text-align: center;
-}
-.bx-wrapper .bx-controls-auto .bx-start {
-  display: block;
-  text-indent: -9999px;
-  width: 10px;
-  height: 11px;
-  outline: 0;
-  background: url(../images/controls.png) -86px -11px no-repeat;
-  margin: 0 3px;
-}
-.bx-wrapper .bx-controls-auto .bx-start:hover,
-.bx-wrapper .bx-controls-auto .bx-start.active {
-  background-position: -86px 0;
-}
-.bx-wrapper .bx-controls-auto .bx-stop {
-  display: block;
-  text-indent: -9999px;
-  width: 9px;
-  height: 11px;
-  outline: 0;
-  background: url(../images/controls.png) -86px -44px no-repeat;
-  margin: 0 3px;
-}
-.bx-wrapper .bx-controls-auto .bx-stop:hover,
-.bx-wrapper .bx-controls-auto .bx-stop.active {
-  background-position: -86px -33px;
-}
-/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
-/* IMAGE CAPTIONS */
-.bx-wrapper .bx-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: #666;
-  background: rgba(80, 80, 80, 0.75);
-  width: 100%;
-}
-.bx-wrapper .bx-caption span {
-  color: #fff;
-  font-family: Arial;
-  display: block;
-  font-size: .85em;
-  padding: 10px;
-}
-
 @media (max-width: 830px) {
   .qna-image {
     width: 100%;

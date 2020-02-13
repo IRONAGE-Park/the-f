@@ -73,9 +73,12 @@
                                 <option value="content" <?=($get_field=="uname")?"selected":"";?>>내용</option>
                             </select>
                         </td>
-                        <td><input name="find_word" value="<?=$get_word;?>" type="text" class="input" id="">
+                        <td>
+                            <div class="qna-search-box">
+                                <input name="find_word" value="<?=$get_word;?>" type="text" class="search-input">
+                                <button class="search-submit" type="submit"><img src="../img/search.svg"></button>
+                            </div>
                         </td>
-                        <td><button>검색</button></td>
                     </tr>
                 </table>
             </td>

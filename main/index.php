@@ -16,11 +16,10 @@
  <tr>
   <td>
 	<div class="visual-wrap">
-		
 		<? for($i = 1; $i <= $rcount; $i++) { 
 			$board_img = "../upload/banner/".$result[$i - 1]['fileadd_name'];
 		?>
-		<div class=<?="visual-posi-0${i}"?>>
+		<div class=<?="visual-posi"?>>
 			<img src=<?=$board_img?> alt="">
 		</div>
 		<? } ?>

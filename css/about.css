@@ -1,0 +1,26 @@
+.about-wrap { border: none;}
+.about-content { width: 50%; }
+.about-content-box { padding: 10%; }
+.about-content-box div { margin-top: 20px; }
+.about-content-btext { font-size: 1.5em; }
+.about-content-stext { font-size: 1em;}
+.about-content-stext-top { font-size: 1.1em;}
+.about-content-stext-mid { font-size: 1em;}
+.about-content-stext-bot { font-size: 1.5em; }
+.about-emphasize { color: #072a49;}
+
+
+.about-content-blogo { width: 300px; }
+.about-content-slogo { width: 150px; }
+
+
+
+@media (max-width: 1024px) {
+    .about-wrap, td { font-size: 12px; }
+}
+
+@media (max-width: 768px) {
+    .about-content { width: 100%; display: block; }
+    .about-content-box { padding: 0 5%; }
+    .about-content-slogo { display: none; }
+}

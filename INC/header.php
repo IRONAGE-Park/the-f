@@ -24,11 +24,11 @@ $file_path_1=$file_arr[sizeof($file_arr)-2];
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>The F</title>
-	<link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap&subset=korean" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="../css/style.css" type="text/css">
 	<link rel="stylesheet" href="../css/header.css" type="text/css">
 	<link rel="stylesheet" href="../css/search.css" type="text/css">
+	<link rel="stylesheet" href="../css/about.css" type="text/css">
 	<link rel="stylesheet" href="../css/material.css" type="text/css">
 	<link rel="stylesheet" href="../css/photoview.css" type="text/css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -44,51 +44,8 @@ $file_path_1=$file_arr[sizeof($file_arr)-2];
 	<script language="JavaScript" type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script language="JavaScript" type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
 	<script language="JavaScript" type="text/javascript" src="../js/slider3.js"></script>
-
 	<script type="text/javascript" src="<?=$PATH_INFO?>/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript" src="<?=$PATH_INFO?>/js/head.js"></script>
-
-	<script src="/js/lib/jquery-scrolltofixed.js"></script>
-	<script src="/js/lib/jquery.bxslider.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			var mainSlider = {
-			    init: function() {
-			        this.slider_01();
-			    },
-			    slider_01: function() {
-			        $('.quick-content .bxslider').bxSlider({
-			            mode: 'vertical',    //horizontal, fade, vertical
-			            captions: true,
-			            auto: false,
-			            autoControls: false,
-			            controls: true,
-			            startText: '재생하기',
-			            stopText: '멈추기',
-			            autoHover:true,
-			            touchEnabled:true,  //스크린 손가락 터치
-			            autoControlsCombine:true,  //재생하기와 멈추기 버튼 번갈아가면서 동작
-			            pager:false,
-			            minSlides: 4,
-                  		    maxSlides: 4,
-                  		    moveSlides: 1,
-                  		    infiniteLoop:false
-			            
-			        });
-			    }
-			};
-			mainSlider.init(); //메인슬라이드
-		});
-	</script>
-	
-<!-- AceCounter Log Gathering Script V.7.5.2013010701 --><!--2015.10.14삽입-->
-<script language='javascript'>
-	var _AceGID=(function(){var Inf=['dgc15.acecounter.com','8080','BP5N39909814114','CW','0','NaPm,Ncisy','ALL','0']; var _CI=(!_AceGID)?[]:_AceGID.val;var _N=0;var _T=new Image(0,0);if(_CI.join('.').indexOf(Inf[3])<0){ _T.src =( location.protocol=="https:"?"https://"+Inf[0]:"http://"+Inf[0]+":"+Inf[1]) +'/?cookie'; _CI.push(Inf);  _N=_CI.length; } return {o: _N,val:_CI}; })();
-	var _AceCounter=(function(){var G=_AceGID;if(G.o!=0){var _A=G.val[G.o-1];var _G=( _A[0]).substr(0,_A[0].indexOf('.'));var _C=(_A[7]!='0')?(_A[2]):_A[3];	var _U=( _A[5]).replace(/\,/g,'_');var _S=((['<scr','ipt','type="text/javascr','ipt"></scr','ipt>']).join('')).replace('tt','t src="'+location.protocol+ '//cr.acecounter.com/Web/AceCounter_'+_C+'.js?gc='+_A[2]+'&py='+_A[4]+'&gd='+_G+'&gp='+_A[1]+'&up='+_U+'&rd='+(new Date().getTime())+'" t');document.writeln(_S); return _S;} })();
-</script>
-<noscript><img src='http://dgc15.acecounter.com:8080/?uid=BP5N39909814114&je=n&' border='0' width='0' height='0' alt=''></noscript>	
-<!-- AceCounter Log Gathering Script End --> 
-
 <script src="../js/search.js"></script>
 </head>
 
@@ -140,7 +97,7 @@ $file_path_1=$file_arr[sizeof($file_arr)-2];
 			</tr>
 			<tr>
 				<td>
-					<table>
+					<table width="100%">
 						<tbody>
 							<tr class="sidebar-intro">
 								<td class="sidebar-content">
@@ -173,10 +130,10 @@ $file_path_1=$file_arr[sizeof($file_arr)-2];
 										</li>
 										<li class="sidebar-nav-element">
 											<form class="sidebar-nav-search" action="/search/search.php" method="get">
-												<input id="search-input" class="search-input" type="text" name="query" placeholder="Search..." required/>
-												<button class="search-submit" type="submit">
+												<input id="sidebar-search-input" class="sidebar-search-input" type="text" name="query" placeholder="Search..." required/>
+												<button class="sidebar-search-submit" type="submit">
 													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" fill="#ffffff"
-														width="25px" height="25px" viewBox="0 0 17 17" enable-background="new 0 0 17 17" xml:space="preserve">
+														width="20px" height="20px" viewBox="0 0 17 17" enable-background="new 0 0 17 17" xml:space="preserve">
 														<g>
 															<path d="M15.422,16.707c-0.341,0-0.673-0.141-0.904-0.381l-3.444-3.434c-1.174,0.813-2.58,1.245-4.006,1.245
 																C3.163,14.137,0,10.974,0,7.068S3.163,0,7.068,0s7.068,3.163,7.068,7.068c0,1.426-0.432,2.832-1.245,4.006l3.444,3.444
