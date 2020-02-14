@@ -229,8 +229,8 @@ body{ margin: 0; padding: 0; background:#183B51;}
 .admin-image-title { font-size: 24px; padding: 10px;}
 
 
-.open#admin-upload-shade { display: block; }
-#admin-upload-shade {
+.open#admin-upload-shade, .open#admin-mupload-shade { display: block; }
+#admin-upload-shade, #admin-mupload-shade {
     display:none; z-index: 10;
     background: rgba(0, 0, 0, 0.5); position: fixed;
     width: 100%; height: 100%; top:0; left:0;

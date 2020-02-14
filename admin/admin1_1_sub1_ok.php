@@ -1,13 +1,12 @@
 <?
 	@extract($_GET); 
 	@extract($_POST);
-	$doc_root = $_SERVER['DOCUMENT_ROOT'];
-	require_once($doc_root."/INC/get_session.php");
-	require_once($doc_root."/INC/dbConn.php");
-	require_once($doc_root."/INC/Function.php");
-	require_once($doc_root."/INC/arr_data.php");
-	require_once($doc_root."/INC/func_other.php");
-	require_once($doc_root."/INC/down.php");			//파일 다운로드
+	require_once("../INC/get_session.php");
+	require_once("../INC/dbConn.php");
+	require_once("../INC/Function.php");
+	require_once("../INC/arr_data.php");
+	require_once("../INC/func_other.php");
+	require_once("../INC/down.php");			//파일 다운로드
 	require_once("./common_head.html");
 
 	//인젝션

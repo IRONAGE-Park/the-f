@@ -63,7 +63,7 @@
 			}
 			$.ajax({
 				type: "POST"
-				, url: "/INC/adminlogin_ajax1.php"
+				, url: "../INC/adminlogin_ajax1.php"
 				, dataType: "JSON"
 				, data: "mode=login&session_id=<?=$_SESSION['Session_ID']?>&v1=" + v1 + "&v2=" + v2 + "&mtype=" + v3
 				, success: function (res) {
