@@ -710,12 +710,12 @@ class HC_common {
 			#### 큰 이미지 저장한다. ####
 			$saverdir_1 = $ROOT_PATH."/$tablefile/$fileadd_name_1";
 			//echo "$fileadd_name_last / $fileadd <br> $saverdir_1<br>";
-
+            //echo $saverdir_1;
 			if(!copy($fileadd,"$saverdir_1")){
-				$this->error("첨부화일 등록에 실패하였습니다. 다시 등록해 주세요","previous","");
+				$this->error("첨부화일 등록에 실패하였습니다. 다시 등록해 주세요".$saverdir_1,"previous","");
 			}
 
-		return array("$fileadd_name_1","$file_size_1","$fileadd_org");
+		    return array("$fileadd_name_1","$file_size_1","$fileadd_org");
 
 		}
 	}

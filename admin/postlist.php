@@ -150,7 +150,7 @@
 <table width="100%" height="70" border="0" cellpadding="0" cellspacing="0">
 	<tr valign="bottom">
 		<td align="left" width="100"><a class="admin-button"
-				href="javascript:select_member_change('board_delete','boardok.php?conf=<?=$conf?>&formmode=delete_all');">선택
+				href="javascript:select_member_change('board_delete','boardok.php?conf=<?=$c_name?>&formmode=delete_all');">선택
 				삭제</a></td>
 		<td align="center"><?=$pageNaviHTML;?></td>
 		<td align="right" width="100"><a class="admin-button" href="<?echo"

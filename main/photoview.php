@@ -18,7 +18,7 @@
 	if($MODEUSETYPE=="Y") {
 		$row_board_mode = "[".$ARR_BOARD_TYPE[$row_board['mode']]."]";
 	}
-	 	$dir = '..'.$row_board['fileadd_folder']."/banner";
+	 	$dir = '../'.$row_board['fileadd_folder']."/banner";
 		// 핸들 획득
 		$handle  = opendir($dir);
 		$files = array();
@@ -104,7 +104,7 @@
 	<?
 
 		if($tablename == "tb_post1") {
-			$dir = '..'.$row_board['fileadd_folder']."/product";
+			$dir = '../'.$row_board['fileadd_folder']."/product";
 			// 핸들 획득
 			$handle  = opendir($dir);
 			$files = array();

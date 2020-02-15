@@ -15,7 +15,7 @@ if($uid) {
 	if($MODEUSETYPE=="Y") {
 		$row_board_mode = "[".$ARR_BOARD_TYPE[$row_board['mode']]."]";
 	}
-	$dir = "..".$row_board['fileadd_folder']."/banner";
+	$dir = "../".$row_board['fileadd_folder']."/banner";
 	// 핸들 획득
 	$handle  = opendir($dir);
 	
@@ -36,13 +36,36 @@ if($uid) {
 	// 정렬, 역순으로 정렬하려면 rsort 사용
 	sort($files);
 	// 파일명을 출력한다.
+	if($c_name=="post1") {
+		$dirProduct = "../".$row_board['fileadd_folder']."/product";
+		// 핸들 획득
+		$handle  = opendir($dirProduct);
+		
+		$filesProduct = array();
+		
+		// 디렉터리에 포함된 파일을 저장한다.
+		while (false !== ($filename = readdir($handle))) {
+			if($filename == "." || $filename == ".." || $filename == ".DS_Store"){
+				continue;
+			}
+			// 파일인 경우만 목록에 추가한다.
+			if(is_file($dirProduct . "/" . $filename)){
+				$filesProduct[] = $filename;
+			}
+		}
+		// 핸들 해제 
+		closedir($handle);
+		// 정렬, 역순으로 정렬하려면 rsort 사용
+		sort($filesProduct);
+		// 파일명을 출력한다.
+	}
 }
 ?>
 
       <!-- 본문컨텐츠부분 시작 -->
       <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 	  	<tr class="admin-view-title"> 
-          <td width="100" height="35"><font class="T4">ㆍ제목</font></td>
+          <td width="120" height="35"><font class="T4">ㆍ제목</font></td>
           <td ><strong><?=$row_board_mode?> <?=$row_board['title']?></strong></td>
           <td width="10%" height="70"><font class="T4">ㆍ등록일자</font></td>
           <td width="20%"><?=$row_board['reg_date']?></td>
@@ -56,7 +79,7 @@ if($uid) {
       	</table>
 	   	<table border="0" align="center" cellpadding="0" cellspacing="0">
         <tr class="admin-view-content"> 
-          	<td width="100"><font class="T4">ㆍ배너 이미지</font></td>
+          	<td width="120"><font class="T4">ㆍ배너 이미지</font></td>
           	<td>
 				<div class="admin-manage-content-padding">
 					<?
@@ -69,11 +92,11 @@ if($uid) {
 		</tr>
 		<? if($c_name=="post1") { ?>
 		<tr class="admin-view-content"> 
-          	<td width="100"><font class="T4">ㆍ제품 이미지</font></td>
+          	<td width="120"><font class="T4">ㆍ제품 이미지</font></td>
           	<td>
 				<div class="admin-manage-content-padding">
 					<?
-					foreach ($files as $f) {
+					foreach ($filesProduct as $f) {
 						echo "<img src='$dir/$f'/>";
 					}
 					?>
@@ -82,7 +105,7 @@ if($uid) {
 		</tr>
 		<? } ?>
 		<tr class="admin-view-content"> 
-          	<td width="100"><font class="T4">ㆍ내용</font></td>
+          	<td width="120"><font class="T4">ㆍ내용</font></td>
           	<td>
 				<div class="admin-manage-content-padding" align="justify">
               		<?=stripslashes($row_board['content'])?>
@@ -110,10 +133,10 @@ if($uid) {
 			<!-- 답변 --><a class="admin-button" href="<?echo"$_SERVER[PHP_SELF]?c_name=$c_name&bmain=reply&uid=$uid"?>">답변</a> 
 		<?}?>
 		<?if($SITE_ADMIN_LEVEL=="1") {?>
-            <!-- 삭제 --><a class="admin-button" href="javascript: onClick=contentDel('<?echo"$_SERVER[PHP_SELF]?bmain=ok&conf=$conf&uid=$uid&formmode=delete"?>');">삭제</a>
+            <!-- 삭제 --><a class="admin-button" href="javascript: onClick=contentDel('<?echo"$_SERVER[PHP_SELF]?c_name=$c_name&bmain=ok&conf=$c_name&uid=$uid&formmode=delete"?>');">삭제</a>
 		<?} else {?>	
 			<?if($row_board[pass]==$SITE_ADMIN_MID) {?>
-            <!-- 삭제 --><a class="admin-button" href="javascript: onClick=contentDel('<?echo"$_SERVER[PHP_SELF]?bmain=ok&conf=$conf&uid=$uid&formmode=delete"?>');">삭제</a>
+            <!-- 삭제 --><a class="admin-button" href="javascript: onClick=contentDel('<?echo"$_SERVER[PHP_SELF]?c_name=$c_name&bmain=ok&conf=$c_name&uid=$uid&formmode=delete"?>');">삭제</a>
 			<?} else {?>
             <!-- 삭제 --><a class="admin-button" href="javascript: onClick=alert('삭제 권한이 없습니다.');">삭제</a>
 			<?}?>

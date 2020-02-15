@@ -43,7 +43,7 @@ if($conf) {
 			
 			$tran_result = $db->tran_query( $tran_query );
 			if ( $tran_result == "1" ) {
-				$common->error("처리 되었습니다.","goto_no_alert","$_SERVER[PHP_SELF]?bmain=list&conf=$conf");
+				$common->error("처리 되었습니다.","goto_no_alert","$_SERVER[PHP_SELF]?c_name=popup&bmain=list&conf=$conf");
 			} else {
 				$common->error("등록 실패 되었습니다","previous","");
 			}
@@ -90,7 +90,7 @@ if($conf) {
 
 
 			if ( $tran_result == "1" ) {
-				$common->error("수정 되었습니다.  ","goto_no_alert","$_SERVER[PHP_SELF]?bmain=list&conf=$conf");
+				$common->error("수정 되었습니다.  ","goto_no_alert","$_SERVER[PHP_SELF]?c_name=popup&bmain=list&conf=$conf");
 			} else {
 				$common->error("등록 실패 되었습니다","previous","");
 			}			
@@ -125,7 +125,7 @@ if($conf) {
 			$tran_result = $db->tran_query( $tran_query );
 
 
-			$common->error("삭제 되었습니다.","goto_no_alert","$_SERVER[PHP_SELF]?bmain=list&conf=$conf");
+			$common->error("삭제 되었습니다.","goto_no_alert","$_SERVER[PHP_SELF]?c_name=popup&bmain=list&conf=$conf");
 			
 
         break;
@@ -178,7 +178,7 @@ if($conf) {
 		  <table width="300" height="32" border="0" cellpadding="10" cellspacing="0">
 			<tr> 
 			  <td width="275" height="32" bgcolor="50a7e1"><font color="#FFFFFF" class="T3">상태변경처리 </font></td>
-			  <td width="25" bgcolor="50a7e1"><a href="javascript:parent.fancyboxClose();parent.location.reload();"><img src="../images/btn_1.gif" width="17" height="17" border="0"></a></td>
+			  <td width="25" bgcolor="50a7e1"><a href="javascript:parent.fancyboxClose();parent.location.reload();">닫기</a></td>
 			</tr>
 		  </table>
 		  <br> <table width="300" border="0" cellpadding="0" cellspacing="0">
@@ -189,7 +189,7 @@ if($conf) {
 		  <br> <table width="117" border="0" align="center" cellpadding="0" cellspacing="0">
 			<tr> 
 			  <td  align="center">
-				<a href="javascript:parent.fancyboxClose();parent.location.reload();"><img src="../images/btn_2.gif" width="55" height="25" border="0"></a> 
+				<a href="javascript:parent.fancyboxClose();parent.location.reload();">닫기</a> 
 			</tr>
 		  </table>
 		</td>
