@@ -24,6 +24,15 @@
 		</div>
 		<? } ?>
 	</div>
+	<div class="mvisual-wrap">
+		<? for($i = 1; $i <= $rcount; $i++) { 
+			$board_img = "../upload/mbanner/".$m_result[$i - 1]['fileadd_name'];
+		?>
+		<div class=<?="mvisual-posi"?>>
+			<img src=<?=$board_img?> alt="">
+		</div>
+		<? } ?>
+	</div>
   </td>
  </tr>
 

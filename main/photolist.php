@@ -18,18 +18,14 @@
 	$result = $db->fetch_array( $query );
 	$rcount = count($result) ;
 ?>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-	<tr>
-		<td align="center" class="border-n"><span class="list_tit"><?=$board_title?></span></td>
-	</tr>
-</table>
 <table width="90%" align="center" border="0" cellspacing="0" cellpadding="0">
 	<tbody>
 	<?
 		if ($rcount == 0) { echo "<div class='not-found'>Sorry, no posts matched your criteria.</div>"; }
         for ( $i=0 ; $i<$rcount ; $i++ ) {			
 		$link_page = "$_SERVER[PHP_SELF]?bmain=view&uid=".$result[$i]['uid'];
-		$dir = '..'.$result[$i]['fileadd_folder']."/banner";
+		$my_fileadd_folder = $result[$i]['fileadd_folder'];
+		$dir = '../'.$result[$i]['fileadd_folder']."/banner";
 		// 핸들 획득
 		$handle  = opendir($dir);
 		
