@@ -82,7 +82,7 @@
                     <?=$common->cut_string($result[$i]['title'],43)?>
                 </a>
                 </div>
-                <div class="search-body-contain-content"><?=$result[$i]['content'],43?></div>
+                <div class="search-body-contain-content"><?=$result[$i]['content']?></div>
                 <? if($today==$result[$i]['reg_date']) echo " <img src='../asset/img/main/ico_new.png' alt='new'>"; ?>
             </td>
             <td>
