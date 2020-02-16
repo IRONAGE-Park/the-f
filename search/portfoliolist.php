@@ -27,16 +27,11 @@
     $where_add ="";
     $get_field = 'title';
     if(!empty($get_field) && !empty($get_word)){
-        $where_add .= " AND ".$get_field." like '%".$get_word."%'";
+        // $where_add .= " AND ".$get_field." like '%".$get_word."%'";
+        $where_add .= " AND title like '%".$get_word."%'"." OR content like '%".$get_word."%'";
     }
-    if(!empty($get_viewtype)){	
-		//상태정보
-        $where_add .= " AND viewtype = '".$find_viewtype."'";
-    }
-
     /// 갯수뽑기용 쿼리
-    $query = "SELECT * FROM  $tablename  WHERE 1 and viewtype!='N' $w_sql ".$where_add." ORDER BY ".$ORDER_BY." fidnum DESC, thread ASC";
-    
+    $query = "SELECT * FROM  $tablename  WHERE 1 ".$where_add."ORDER BY reg_date DESC";
     $result_cnt = $db->fetch_array( $query );
     $total_num = count($result_cnt);
 
@@ -58,25 +53,36 @@
     <table class="search-body-contain-wrap">
         <?
         for ( $i=0 ; $i<$rcount ; $i++ ) {			
-            $link_page = "/portfolio/portfolio.php?bmain=view&uid=".$result[$i]['uid'];
-            if($MEMOUSETYPE=="Y") {
-                #### 댓글 사용하는 경우 갯수 조회 ########
-                $query_tot = "SELECT uid FROM  $memo_tablename  WHERE board_uid='".$result[$i]['uid']."'";			
-                $result_memo_count = $db->num_rows( $query_tot );
-                if($result_memo_count) $result_memo_count = "(".$result_memo_count.")"; else $result_memo_count="";
-            }
-            if($MODEUSETYPE=="Y"){	//분류사용인경우
-                $row_board_mode = "[".$ARR_BOARD_TYPE[$result[$i]['mode']]."] ";
-            }
+            $link_page = "/main/portfolio.php?bmain=view&uid=".$result[$i]['uid'];
             $today = date("Y-m-d");
-            $my_fileadd_name = $result[$i]['fileadd_name'];
+            $my_fileadd_folder = $result[$i]['fileadd_folder'];
+            $dir = '../'.$my_fileadd_folder."/banner";
+            // 핸들 획득
+            $handle  = opendir($dir);
+            
+            $files = array();
+            
+            // 디렉터리에 포함된 파일을 저장한다.
+            while (false !== ($filename = readdir($handle))) {
+                if($filename == "." || $filename == ".." || $filename == ".DS_Store"){
+                    continue;
+                }
+                // 파일인 경우만 목록에 추가한다.
+                if(is_file($dir . "/" . $filename)){
+                    $files[] = $filename;
+                }
+            }
+            // 핸들 해제 
+            closedir($handle);
+            // 정렬, 역순으로 정렬하려면 rsort 사용
+            sort($files);
         ?>
         <tr class="search-body-contain-element">
             <td class="search-body-contain-image" align="center">
                 <a href="<?=$link_page?>">
                     <? 
-                    if($my_fileadd_name) {
-                        echo "<img src='$HOME_PATH/$tablefile/$my_fileadd_name'>";
+                    if($my_fileadd_folder) {
+                        echo "<img src='$HOME_PATH/$my_fileadd_folder/banner/".$files[0]."'>";
                     } else {
                         echo "<img src=$HOME_PATH/Bimg/loading.gif>";
                     }
@@ -87,8 +93,7 @@
                 <div class="search-body-contain-title">
                     <a href="<?=$link_page?>"><?=$common->cut_string($result[$i]['title'],43)?></a>
                 </div>
-                <div class="search-body-contain-content">임시 내용</div>
-                <? if($today==$result[$i]['reg_date']) echo " <img src='../asset/img/main/ico_new.png' alt='new'>"; ?>
+                <div class="search-body-contain-content"><?=$result[$i]['content']?></div>
             </td>
             <td>
                 <?=$common->dateStyle(substr($result[$i]['reg_date'],0,10),".")?>
@@ -101,7 +106,7 @@
     </table>
     <? if (empty($get_plist) &&$total_num > 5) { ?>
 		<input type="hidden" name="plist" value="<?=$total_num?>"/>
-		<input type="hidden" name="conf_name" value="conf_board1"/>
+		<input type="hidden" name="conf_name" value="conf_post"/>
 		<input type="hidden" name="page_name" value="portfoliolist"/>
         <button class="search-body-contain-more">
             더보기 >

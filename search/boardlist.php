@@ -27,7 +27,8 @@
 
     $get_field = 'title';
     if(!empty($get_field) && !empty($get_word)){
-        $where_add .= " AND ".$get_field." like '%".$get_word."%'";
+        // $where_add .= " AND ".$get_field." like '%".$get_word."%'";
+        $where_add .= " AND title like '%".$get_word."%'"." OR content like '%".$get_word."%'";
     }
 
     if(!empty($get_viewtype)){	
@@ -36,7 +37,6 @@
     }
     /// 갯수뽑기용 쿼리
     $query = "SELECT * FROM  $tablename  WHERE topview!='Y'  and viewtype!='N' $w_sql ".$where_add." ORDER BY ".$ORDER_BY." fidnum DESC, thread ASC";
-    
     $result_cnt = $db->fetch_array( $query );
     $total_num = count($result_cnt) ;
 
@@ -57,25 +57,6 @@
 <form method="POST" action=<?="./more.html?query=".$get_word?>>
     <table class="search-body-contain-wrap">
         <?
-        /// 갯수뽑기용 쿼리
-        $query1 = "SELECT * FROM  $tablename  WHERE topview='Y' ".$where_add." ORDER BY ".$ORDER_BY." fidnum DESC, thread ASC";
-        $result1 = $db->fetch_array( $query1);
-        $rcount1 = count($result1);
-        for ( $t=0 ; $t<$rcount1 ; $t++ ) {			
-            $link_page = "/qna/qna.php?bmain=view&uid=".$result1[$t]['uid'];
-        ?>
-        <tr>
-            <td>[공지]</td>
-            <td class="subject">
-                <a href="<?=$link_page?>"><?=$common->cut_string($result1[$t]['title'],43)?></a><img
-                    src="../asset/img/main/ico_new.png" alt="new">
-            </td>
-            <td><?=$result1[$t]['uname']?></td>
-            <td><?=$common->dateStyle(substr($result1[$t]['reg_date'],0,10),".")?></td>
-            <td><?=$result1[$t]['ref']?></td>
-        </tr>
-        <?}?>
-        <?
             for ( $i=0 ; $i<$rcount ; $i++ ) {			
                 $link_page = "/qna/qna.php?bmain=view&uid=".$result[$i]['uid'];
                 if($MEMOUSETYPE=="Y") {
@@ -88,11 +69,6 @@
                     $row_board_mode = "[".$ARR_BOARD_TYPE[$result[$i]['mode']]."] ";
                 }
                 $today = date("Y-m-d");
-                if($result[$i]['keytype']=="Y") {
-                    $hold = "<img src='../img/button/icon_hold.gif'>";
-                } else {
-                    $hold = "";
-                }
             ?>
         <tr class="search-body-contain-element">
             <td class="search-body-contain-image" align="center">
@@ -104,9 +80,9 @@
                 <div class="search-body-contain-title">
                 <a href="<?=$link_page?>">
                     <?=$common->cut_string($result[$i]['title'],43)?>
-                </a><?=$hold?>
+                </a>
                 </div>
-                <div class="search-body-contain-content">임시 내용</div>
+                <div class="search-body-contain-content"><?=$result[$i]['content'],43?></div>
                 <? if($today==$result[$i]['reg_date']) echo " <img src='../asset/img/main/ico_new.png' alt='new'>"; ?>
             </td>
             <td>

@@ -36,14 +36,12 @@
 
     $get_field = 'title';
     if(!empty($get_field) && !empty($get_word)){
-        $where_add .= " AND ".$get_field." like '%".$get_word."%'";
+        // $where_add .= " AND ".$get_field." like '%".$get_word."%'";
+        $where_add .= " AND title like '%".$get_word."%'"." OR content like '%".$get_word."%'";
     }
 	$query = "SELECT * FROM  $tablename  WHERE 1 ".$where_add;
-	
-	for($i = 1; $i < 10; $i++)
-		$query .= " UNION SELECT * FROM tb_pro${i} WHERE 1 ".$where_add;
 
-	$query .= " ORDER BY ".$ORDER_BY." reg_date DESC";
+	$query .= " ORDER BY reg_date DESC";
     $result_cnt = $db->fetch_array( $query );
     $total_num = count($result_cnt) ;
 
@@ -63,39 +61,35 @@
 <form method="POST" action=<?="./more.html?query=".$get_word?>>
 	<table class="search-body-contain-wrap">
 		<?
-    	/// 갯수뽑기용 쿼리
-    	$query1 = "SELECT * FROM  $tablename  WHERE topview='Y' ".$where_add." ORDER BY ".$ORDER_BY." fidnum DESC, thread ASC";
-        $result1 = $db->fetch_array($query1);
-        $rcount1 = count($result1) ;
-
-        for ( $t=0 ; $t<$rcount1 ; $t++ ) {
-		$link_page = "$_SERVER[PHP_SELF]?bmain=view&uid=".$result1[$t]['uid'];
-
-		?>
-		<tr height="33">
-			<td></td>
-			<td align="center"><b>[공지]</b></td>
-			<td><a href="<?=$link_page?>"><?=$result1[$t]['title']?></a> <?=$result_memo_count?></td>
-			<td align="center"><a href="<?=$link_page?>"><?=substr($result1[$t]['reg_date'],0,10)?></a></td>
-			<?if($REFUSETYPE=="Y") {?>
-			<td align="center"><?=$result1[$t]['ref']?></td>
-			<?}?>
-			<td align="center"><?=$result1[$t]['viewtype']?></td>
-		</tr>
-		<?}?>
-		<!-- end 상단 출력인 경우 사용  -->
-
-		<?
-        for ( $i=0 ; $i<$rcount ; $i++ ) {
-		$link_page = "/product/view.php?bmain=view&uid=".$result[$i]['uid'];
-
+		for ( $i=0 ; $i<$rcount ; $i++ ) {
+			$link_page = "/main/product.php?bmain=view&uid=".$result[$i]['uid'];
+			$my_fileadd_folder = $result[$i]['fileadd_folder'];
+			$dir = '../'.$my_fileadd_folder."/banner";
+			// 핸들 획득
+			$handle  = opendir($dir);
+			$files = array();
+		
+            // 디렉터리에 포함된 파일을 저장한다.
+            while (false !== ($filename = readdir($handle))) {
+                if($filename == "." || $filename == ".." || $filename == ".DS_Store"){
+                    continue;
+                }
+                // 파일인 경우만 목록에 추가한다.
+                if(is_file($dir . "/" . $filename)){
+                    $files[] = $filename;
+                }
+            }
+            // 핸들 해제 
+            closedir($handle);
+            // 정렬, 역순으로 정렬하려면 rsort 사용
+            sort($files);
 		?>
 		<tr class="search-body-contain-element">
 			<td class="search-body-contain-image" align="center">
 				<a href="<?=$link_page?>">
 				<? 
-				if ($result[$i]['fileadd_name']) {
-					echo "<img src='$HOME_PATH/$tablefile/".$result[$i]['fileadd_name']."'>";
+				if ($my_fileadd_folder) {
+					echo "<img src='$HOME_PATH/$my_fileadd_folder/banner/".$files[0]."'>";
 				} else {
 					echo "<img src=$HOME_PATH/Bimg/loading.gif>";
 				}
@@ -105,9 +99,8 @@
         	<td class="search-body-contain-text">
             	<div class="search-body-contain-title">
 					<a href="<?=$link_page?>"><?=$row_board_mode?><?=$result[$i]['title']?></a>
-					<?=$row_reply?> <?=$result_memo_count?>
 				</div>
-				<div class="search-body-contain-content">임시 내용</div>
+				<div class="search-body-contain-content"><?=$result[$i]['content']?></div>
 			</td>
 			<td>
 				<?=$common->dateStyle(substr($result[$i]['reg_date'],0,10),".")?>
@@ -120,7 +113,7 @@
 	</table>
 	<? if (empty($get_plist) && $total_num > 5) { ?>
 		<input type="hidden" name="plist" value="<?=$total_num?>"/>
-		<input type="hidden" name="conf_name" value="conf_pro"/>
+		<input type="hidden" name="conf_name" value="conf_post1"/>
 		<input type="hidden" name="page_name" value="prolist"/>
 		<button class="search-body-contain-more">
             더보기 >

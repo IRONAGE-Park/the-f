@@ -18,7 +18,7 @@
 				<form action="/search/search.php" method="get">
 					<input style="font-size: 20px; line-height: 40px;" id="search-input" class="search-input"
 						type="text" name="query" placeholder="Type Here" required />
-					<button style="top: 10px;" class="search-submit" type="submit">
+					<button class="search-submit" type="submit">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
 							y="0px" fill="#000" width="20px" height="20px" viewBox="0 0 17 17"
 							enable-background="new 0 0 17 17" xml:space="preserve">
@@ -59,7 +59,7 @@
 							<td class="border-n">
 								<div class="search-request">Portfolio </div>
 								<? 
-								include "../admin/conf/conf_board1.php";
+								include "../admin/conf/conf_post.php";
 								include "./portfoliolist.php";
 								?>
 							</td>

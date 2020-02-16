@@ -29,7 +29,6 @@
 		if ($rcount == 0) { echo "<div class='not-found'>Sorry, no posts matched your criteria.</div>"; }
         for ( $i=0 ; $i<$rcount ; $i++ ) {			
 		$link_page = "$_SERVER[PHP_SELF]?bmain=view&uid=".$result[$i]['uid'];
-		$my_fileadd_folder = $result[$i]['fileadd_folder'];
 		$dir = '..'.$result[$i]['fileadd_folder']."/banner";
 		// 핸들 획득
 		$handle  = opendir($dir);

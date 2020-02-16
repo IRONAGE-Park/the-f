@@ -136,18 +136,12 @@
 		}
 
 		$today = date("Y-m-d");
-
-		if($result[$i]['keytype']=="Y") {
-			$hold = "<img src='../img/button/icon_hold.gif'>";
-		} else {
-			$hold = "";
-		}
 	?>
 
                 <tr>
                     <td align="center" class="qna_list02"><?=$numbers?></td>
                     <td class="qna_list02">
-                        <a href="<?=$link_page?>"><?=$common->cut_string($result[$i]['title'],43)?></a><?=$hold?>
+                        <a href="<?=$link_page?>"><?=$common->cut_string($result[$i]['title'],43)?></a>
                         <? if($today==$result[$i]['reg_date']) echo " <img src='../asset/img/main/ico_new.png' alt='new'>"; ?>
                     </td>
                     <td align="center" class="m_dis qna_list02"><?=$result[$i]['uname']?></td>
