@@ -19,7 +19,7 @@
 
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
      <tr>
-	 <td height="440" valign="top" style="background-image:url(../img/pw.jpg); background-position:top left; background-repeat:no-repeat; padding:40px 0">
+	 <td height="440" align="center">
 	  
 		  <table border="0" cellspacing="0" cellpadding="0">
 

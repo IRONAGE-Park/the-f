@@ -12,16 +12,14 @@ $rcount = count($result) ;
         ?>
             <div style="display:inline-block" align="center">
                 <div>
-                    <a href="<?=$link_page?>">
                     <? 
                     if($my_fileadd_name) {
-                        echo "<img src='$HOME_PATH/$tablefile/$my_fileadd_name' border=0 height=120 width='120'>";
+                        echo "<img class='material-image' src='$HOME_PATH/$tablefile/$my_fileadd_name' border=0>";
                     }
                     ?>
-                    </a>
                 </div>
                 <div style="padding:5px 0 20px 0" align="center">
-                    <a href="<?=$link_page?>"><?=$common->cut_string($result[$i]['title'],43)?></a>
+                    <?=$common->cut_string($result[$i]['title'],43)?>
                 </div> 
             </div>
         <?

@@ -100,12 +100,12 @@
             	<div class="search-body-contain-title">
 					<a href="<?=$link_page?>"><?=$row_board_mode?><?=$result[$i]['title']?></a>
 				</div>
-				<div class="search-body-contain-content"><?=$result[$i]['content']?></div>
+				<div class="search-body-contain-content m_dis"><?=$result[$i]['content']?></div>
 			</td>
-			<td>
+			<td class="m_dis">
 				<?=$common->dateStyle(substr($result[$i]['reg_date'],0,10),".")?>
 			</td>
-			<td>
+			<td class="m_dis">
 				조회수 <?=$result[$i]['ref']?>
 			</td>
 		</tr>

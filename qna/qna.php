@@ -7,13 +7,10 @@ include "../admin/conf/conf_board.php";
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
  <tr>
   <td align="center" valign="top">
-	<table width="80%" border="0" cellspacing="0" cellpadding="0">
+	<table style="max-width: 1300px;" width="80%" border="0" cellspacing="0" cellpadding="0">
    <tr>
 		<!--contents-->
     <td valign="top" class="content"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-     <tr>
-      <td align="center"><img class="qna-image" src="../img/visual/visual11.jpg"></td>
-     </tr>
      <tr>
       <td class="border-n">
 	  <table width="100%" border="0" cellspacing="0" cellpadding="0">

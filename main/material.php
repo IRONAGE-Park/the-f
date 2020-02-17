@@ -8,7 +8,7 @@ include "../admin/conf/conf_main.php";
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
  <tr>
   <td align="center" valign="top">
-	<table width="80%" border="0" cellspacing="0" cellpadding="0">
+	<table style="max-width: 1300px;" width="80%" border="0" cellspacing="0" cellpadding="0">
    		<tr>
    			<!--contents-->
 			<td valign="top" class="content">
@@ -35,10 +35,6 @@ include "../admin/conf/conf_main.php";
 					</tr>
 				</table>
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					
-					<tr>
-						<td align="center"><img class="qna-image" src="../img/visual/visual0<?=$code?>.jpg"></td>
-					</tr>
 					<script>
 						function plSelect(index) {
 							var plNavElements = document.getElementsByClassName('product-list-nav-element');

@@ -82,13 +82,13 @@
                     <?=$common->cut_string($result[$i]['title'],43)?>
                 </a>
                 </div>
-                <div class="search-body-contain-content"><?=$result[$i]['content']?></div>
+                <div class="search-body-contain-content m_dis"><?=$result[$i]['content']?></div>
                 <? if($today==$result[$i]['reg_date']) echo " <img src='../asset/img/main/ico_new.png' alt='new'>"; ?>
             </td>
-            <td>
+            <td class="m_dis">
                 <?=$common->dateStyle(substr($result[$i]['reg_date'],0,10),".")?>
             </td>
-            <td>
+            <td class="m_dis">
                 조회수 <?=$result[$i]['ref']?>
             </td>
         </tr>

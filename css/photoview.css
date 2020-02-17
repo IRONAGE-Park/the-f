@@ -1,3 +1,8 @@
+
+.material-image {
+    width: 200px;
+    height: 200px;
+}
 .product_menu {
     text-decoration: none;
     color: #072a40;
@@ -58,7 +63,6 @@
 .portfolio-wrap {
     position: relative;
     width: 95%;
-    border: solid 1px #666;
     margin: 10px auto;
     opacity: 0.5;
     overflow: hidden;
@@ -66,7 +70,14 @@
 }
 .portfolio-wrap:hover { opacity: 1; }
 .portfolio-wrap:hover .portfolio-title { transform: translateX(0); }
-.portfolio-element:hover { text-decoration: none; }
+.portfolio-element {
+    position: relative;
+    overflow: hidden;
+    padding-top: 75%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.portfolio-link:hover { text-decoration: none; }
 .portfolio-title {
     position: absolute;
     width: 100%;
@@ -92,6 +103,10 @@
     width: 260px;
 }
 @media (max-width: 1300px) {
+    .material-image {
+        width: 150px;
+        height: 150px;
+    }
     .content-view-image {
         width: 720px;
     }
@@ -119,6 +134,10 @@
 }
 
 @media (max-width: 1024px) {
+    .material-image {
+        width: 125px;
+        height: 125px;
+    }
     .list_tit {
         font-size: 36px;
     }
@@ -149,6 +168,10 @@
 }
 
 @media (max-width: 768px) {
+    .material-image {
+        width: 75px;
+        height: 75px;
+    }
     .portfolio-area {
         width: 100%;
         display: block;

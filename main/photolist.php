@@ -53,15 +53,16 @@
 		<table align="center" class="portfolio-wrap" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td>
-					<a class="portfolio-element" href="<?=$link_page?>">
+					<a class="portfolio-link" href="<?=$link_page?>">
 						<?
-						if($files[0]) {
-							echo "<img style='vertical-align: middle;' src='$dir/$files[0]' border=0 width='100%'>";
-						} else {
-							echo "<img src=$HOME_PATH/Bimg/no_image.gif border=0 width='100%'>";
-						}
+							if($files[0]) {
+										echo "<div class='portfolio-element' style='background-image: url($dir/$files[0]);'>";
+							} else {
+										echo "<div class='portfolio-element' style='background-image: url($HOME_PATH/Bimg/no_image.gif);'>";
+							}
 						?>
-						<div class="portfolio-title"><?=$common->cut_string($result[$i]['title'],43)?></div>
+							<div class="portfolio-title"><?=$common->cut_string($result[$i]['title'],43)?></div>
+						</div>
 					</a>
 				</td>
 			</tr>

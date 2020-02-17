@@ -2,7 +2,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td height="1000" align="center">
-      <table class="about-wrap">
+      <table style="max-width: 1300px;" class="about-wrap">
         <tr>
           <td class="about-content">
             <div class="about-content-box">
