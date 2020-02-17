@@ -1,7 +1,7 @@
 <?php
- include_once ($_SERVER['DOCUMENT_ROOT']."/INC/get_session.php");
- include_once ($_SERVER['DOCUMENT_ROOT']."/INC/Function.php");
- include_once ($_SERVER['DOCUMENT_ROOT']."/INC/dbConn.php");
+ include_once ($_SERVER[DOCUMENT_ROOT]."/INC/get_session.php");
+ include_once ($_SERVER[DOCUMENT_ROOT]."/INC/Function.php");
+ include_once ($_SERVER[DOCUMENT_ROOT]."/INC/dbConn.php");
 
     $code = 0;
     $data = "";
@@ -48,13 +48,13 @@
             $val01 = trim($_POST['v1']);        #문자 4자리
             $val02 = trim($_POST['v2']);        #앞코드
 
-				$query1 = "select mid,ulevel,uname,uid  from tb_master where state='Y' and ulevel='1' and mid='$val01'" ;
+				$query1 = "select mid,ulevel,uname,uid  from tb_master where state='Y' and ulevel='1' and mid='$val01' and upasswd=password('$val02') " ;
 				$result1 = $db->row( $query1 );
-				$memberMid = $result1['mid'];
+				$memberMid = $result1[mid];
 
                 if(empty($memberMid)){
                     $code = 0;
-                    $data = $query1;
+                    $data = "NotUser";
                 }else{
 
                   
@@ -65,18 +65,18 @@
 
 
 						########### 관리자 세션생성 ###########
-						 $_SESSION["SITE_ADMIN_MID"]		= $result1['mid'];			//회원아이디
-						 $_SESSION["SITE_ADMIN_NAME"]		= $result1['uname'];			//회원이름
-						 $_SESSION["SITE_ADMIN_UID"]		= $result1['uid'];   			//회원일련번호
-						 $_SESSION["SITE_ADMIN_LEVEL"]		= $result1['ulevel'];			//(회원등급 1 관리자)
+						 $_SESSION["SITE_ADMIN_MID"]		= $result1[mid];			//회원아이디
+						 $_SESSION["SITE_ADMIN_NAME"]		= $result1[uname];			//회원이름
+						 $_SESSION["SITE_ADMIN_UID"]		= $result1[uid];   			//회원일련번호
+						 $_SESSION["SITE_ADMIN_LEVEL"]		= $result1[ulevel];			//(회원등급 1 관리자)
 
 
 				
                         $_SESSION["user_time"] = time();
                         $data = "loging";
-                        $code = $result1['ulevel'];
+                        $code = $result1[ulevel];
 
-                    if(empty($result1['ulevel'])){
+                    if(empty($result1[ulevel])){
                         $code = 0;
                         $data = "levelNotUser";
                     }

@@ -155,9 +155,10 @@ a.footer_f01:hover {padding:0 20px 0 0; text-decoration: none; font-size: 13px; 
 .mainBanner .paging .paging_in a.active,.paging a:hover{ background-position:0 -16px}
 
 .visual-wrap{position:relative; height:480px;}
-.visual-wrap img {width: 100%;}
+.visual-wrap img, .mvisual-wrap img {width: 100%;}
+.mvisual-wrap {display: none}
 
-.visual-wrap .visual-posi {
+.visual-wrap .visual-posi, .mvisual-wrap .mvisual-posi {
   position:absolute; top:0; left:0; display:none;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
   filter: alpha(opacity=0);
@@ -172,4 +173,6 @@ a.footer_f01:hover {padding:0 20px 0 0; text-decoration: none; font-size: 13px; 
 }
 @media (max-width: 768px) {
   .m_dis { display: none;}
+  .visual-wrap {display: none}
+  .mvisual-wrap {display: block;}
 }

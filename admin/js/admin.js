@@ -3,5 +3,5 @@ function menuToggleSwitch(e) {
 }
 
 function uploadToogleSwitch(e) {
-    $('#admin-upload-shade').toggleClass('open');
+    $(e).toggleClass('open');
 }

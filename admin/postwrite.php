@@ -8,7 +8,7 @@
 	if(!$row_board['uid']) {
 		$common->error("관련된 정보가 없습니다.","previous","");
 	}
-	$dir = "..".$row_board['fileadd_folder']."/banner";
+	$dir = "../".$row_board['fileadd_folder']."/banner";
 	// 핸들 획득
 	$handle  = opendir($dir);
 	
@@ -29,20 +29,44 @@
 	// 정렬, 역순으로 정렬하려면 rsort 사용
 	sort($files);
 	// 파일명을 출력한다.
+
+	if($c_name=="post1") {
+		$dirProduct = "../".$row_board['fileadd_folder']."/product";
+		// 핸들 획득
+		$handle  = opendir($dirProduct);
+		
+		$filesProduct = array();
+		
+		// 디렉터리에 포함된 파일을 저장한다.
+		while (false !== ($filename = readdir($handle))) {
+			if($filename == "." || $filename == ".." || $filename == ".DS_Store"){
+				continue;
+			}
+			// 파일인 경우만 목록에 추가한다.
+			if(is_file($dirProduct . "/" . $filename)){
+				$filesProduct[] = $filename;
+			}
+		}
+		// 핸들 해제 
+		closedir($handle);
+		// 정렬, 역순으로 정렬하려면 rsort 사용
+		sort($filesProduct);
+		// 파일명을 출력한다.
+	}
   }
   ?>
 <link rel="stylesheet" href="../admin/css/drop.css" type="text/css" />
 <script src="../admin/js/drop.js" type="text/javascript"></script>
 <?if(!$row_board['uid']) {?>
 <!-- 등록인경우 -->
-<form name="signform" method="post" action="<?echo" $_SERVER[PHP_SELF]"?>" onSubmit="return boardWritecheck()"
+<form name="signform" method="post" action="<?echo" $_SERVER[PHP_SELF]?c_name=$c_name"?>" onSubmit="return boardWritecheck()"
 	ENCTYPE="multipart/form-data">
 	<input type="hidden" name="formmode" value="save">
 	<input type="hidden" name="conf" value="<?=$conf?>"><!-- 환경설정파일  -->
 	<input type="hidden" name="bmain" value="ok">
 	<?} else {?>
 	<!-- 수정인경우 -->
-	<form name="signform" method="post" action="<?echo" $_SERVER[PHP_SELF]"?>" onSubmit="return boardWritecheck()"
+	<form name="signform" method="post" action="<?echo" $_SERVER[PHP_SELF]?c_name=$c_name"?>" onSubmit="return boardWritecheck()"
 		ENCTYPE="multipart/form-data">
 		<input type="hidden" name="formmode" value="modify">
 		<input type="hidden" name="uid" value="<?=$uid?>">
@@ -73,7 +97,7 @@
 				<td height="50" width="150">
 					<font class="T4">ㆍ내용</font>
 				</td>
-				<td colspan="2"><input type="text" name="content" size="120" maxlength="70"
+				<td colspan="2"><input type="text" name="content" size="80" maxlength="70"
 						<?if($row_board['content']){?>value="<?=$row_board['content']?>"
 					<?} ?>></td>
 			</tr>
@@ -131,7 +155,7 @@
 					<?echo"<a href='$PHP_SELF?down=$row_board[fileadd_name]&file_name=$row_board[fileadd_name]&size=$row_board[fileadd_size]&board_name=$tablefile'>"?><?=$row_board['fileadd_org']?></a>
 					<?}?>
 					<?if($tablename=="tb_board1") echo "내용보기";?>
-					<input type="file" name="fileadd" id="input" multiple accept="image/*"/>
+					<input type="file" name="fileadd[]" id="input" multiple accept="image/*"/>
 					<div id="table"></div>
 				</td>
 			</tr>
@@ -140,10 +164,29 @@
 				<td width="150" height="50">
 					<font class="T4">ㆍ제품 이미지</font>
 				</td>
-				<td width="450">기존 이미지</td>
+				<td width="450">
+					<? if($row_board['fileadd_folder']) { ?>
+					기존 이미지
+					<div id="tableExist">
+						<table align="left" style="width:auto; border: none;">
+							<thead>
+								<th>Image</th><th>Size</th>
+							</thead>
+							<tbody align="center">
+								<?php
+									foreach ($filesProduct as $f) {
+										echo "<tr><td><img height='60' src='$dirProduct/$f'/></td>";
+										echo "<td>".filesize($dirProduct.'/'.$f)."</td></tr>";
+									}
+								?>
+							</tbody>
+						</table>
+					</div>
+					<? } ?>
+				</td>
 				<td width="450">
 					업로드 할 이미지
-					<input type="file" name="fileadd_product" id="input_product" multiple accept="image/*"/>
+					<input type="file" name="fileadd_product[]" id="input_product" multiple accept="image/*"/>
 					<div id="tableProduct"></div>
 			</tr>
 			<? } ?>
@@ -152,7 +195,7 @@
 			<tr>
 				<td align="right">
 					<button class="admin-button submit">제출</button>
-					<a class="admin-button" href="<?echo" $_SERVER[PHP_SELF]?bmain=list"?>">취소</a>
+					<a class="admin-button" href="<?echo" $_SERVER[PHP_SELF]?c_name=$c_name&bmain=list"?>">취소</a>
 				</td>
 			</tr>
 		</table>
