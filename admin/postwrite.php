@@ -126,19 +126,19 @@
 				<td width="150" height="50">
 					<font class="T4">ㆍ배너 이미지</font>
 				</td>
-				<td width="450">
+				<td width="300">
 					<? if($row_board['fileadd_folder']) { ?>
 					기존 이미지
 					<div id="tableExist">
 						<table align="left" style="width:auto; border: none;">
 							<thead>
-								<th>Image</th><th>Size</th>
+								<th>Image</th><!--<th>Size</th>-->
 							</thead>
 							<tbody align="center">
 								<?php
 									foreach ($files as $f) {
 										echo "<tr><td><img height='60' src='$dir/$f'/></td>";
-										echo "<td>".filesize($dir.'/'.$f)."</td></tr>";
+										// echo "<td>".filesize($dir.'/'.$f)."</td></tr>";
 									}
 								?>
 							</tbody>
@@ -146,7 +146,7 @@
 					</div>
 					<? } ?>
 				</td>
-				<td width="450">
+				<td width="600">
 					업로드 할 이미지
 					<?if($row_board['fileadd_name']) {
 					$row_board['fileadd_size'] = filesize("$ROOT_PATH/$tablefile/$row_board[fileadd_name]");	
@@ -164,19 +164,19 @@
 				<td width="150" height="50">
 					<font class="T4">ㆍ제품 이미지</font>
 				</td>
-				<td width="450">
+				<td width="300">
 					<? if($row_board['fileadd_folder']) { ?>
 					기존 이미지
 					<div id="tableExist">
 						<table align="left" style="width:auto; border: none;">
 							<thead>
-								<th>Image</th><th>Size</th>
+								<th>Image</th><!--<th>Size</th>-->
 							</thead>
 							<tbody align="center">
 								<?php
 									foreach ($filesProduct as $f) {
 										echo "<tr><td><img height='60' src='$dirProduct/$f'/></td>";
-										echo "<td>".filesize($dirProduct.'/'.$f)."</td></tr>";
+										// echo "<td>".filesize($dirProduct.'/'.$f)."</td></tr>";
 									}
 								?>
 							</tbody>
@@ -184,7 +184,7 @@
 					</div>
 					<? } ?>
 				</td>
-				<td width="450">
+				<td width="600">
 					업로드 할 이미지
 					<input type="file" name="fileadd_product[]" id="input_product" multiple accept="image/*"/>
 					<div id="tableProduct"></div>
