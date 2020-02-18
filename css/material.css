@@ -1,18 +1,20 @@
 .product-list-nav {
 	padding-top: 40px;
-	width: 100%;
+	width: 75%;
+	min-width: 350px;
+	max-width: 700px;
 }
 .product-list-nav-element {
 	padding: 10px 0;
-	border: solid 2px #f8f8f8;
-	border-top: solid 2px grey;
+	border-top: solid 2px #072a40;
 	text-align: center;
 	background-color: #F8F8F8;
 }
+.product-list-nav-element a:hover {text-decoration: none;}
 .selected.product-list-nav-element {
 	background-color: #fff;
-	border-left: solid 2px grey;
-	border-right: solid 2px grey;
+	border-left: solid 2px #072a40;
+	border-right: solid 2px #072a40;
 }
 .PL {
 	transition: all 0.5s;

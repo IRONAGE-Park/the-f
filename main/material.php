@@ -74,10 +74,10 @@ include "../admin/conf/conf_main.php";
 						$mode = 1;
 					?>
 					<tr class="PL product-list-<?=$mode?>">
-						<td class="border-n"><span class="material-title"><?=$ARR_BOARD_TYPE[$mode]?></span></td>
+						<td class="border-p"><span class="material-title"><?=$ARR_BOARD_TYPE[$mode]?></span></td>
 					</tr>
 					<tr class="PL product-list-<?=$mode?>">
-						<td class="border-n">
+						<td class="border-p">
 						<?include "include_pro.php";?>	
 						</td>
 					</tr>
@@ -86,10 +86,10 @@ include "../admin/conf/conf_main.php";
 						$mode = 2;
 					?>
 					<tr class="PL product-list-<?=$mode?>">
-						<td class="border-n"><span class="material-title"><?=$ARR_BOARD_TYPE[$mode]?></span></td>
+						<td class="border-p"><span class="material-title"><?=$ARR_BOARD_TYPE[$mode]?></span></td>
 					</tr>
 					<tr class="PL product-list-<?=$mode?>">
-						<td class="border-n">
+						<td class="border-p">
 						<?include "include_pro.php";?>	
 						</td>
 					</tr>
@@ -98,10 +98,10 @@ include "../admin/conf/conf_main.php";
 						$mode = 3;
 					?>
 					<tr class="PL product-list-<?=$mode?>">
-						<td class="border-n"><span class="material-title"><?=$ARR_BOARD_TYPE[$mode]?></span></td>
+						<td class="border-p"><span class="material-title"><?=$ARR_BOARD_TYPE[$mode]?></span></td>
 					</tr>
 					<tr class="PL product-list-<?=$mode?>">
-						<td class="border-n">
+						<td class="border-p">
 						<?include "include_pro.php";?>	
 						</td>
 					</tr>

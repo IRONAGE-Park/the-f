@@ -99,6 +99,7 @@
 .search-body-result-count::before { content: "About "; }
 .search-body-result-count::after { content: " results."; }
 .search-body-contain { padding: 0 50px; position: relative; }
+.search-body-contain-content img{display: none;}
 .search-body-contain-wrap { width: 100%; }
 .search-body-contain-element { height: 120px; border-bottom: 1px solid #e1e1e1;}
 .search-body-contain-image { width: 200px; } .search-body-contain-image img { width: 100px; height: 100px; }

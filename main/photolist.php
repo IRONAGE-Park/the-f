@@ -18,6 +18,39 @@
 	$result = $db->fetch_array( $query );
 	$rcount = count($result) ;
 ?>
+<table width="80%" align="center" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<? if ($tablename == "tb_post") {?>
+		<td align="center" class="border-n">
+			<span class="list_tit">
+				Portfolio
+			</span>
+		</td>
+		<? } else if ($tablename == "tb_post1") { ?>
+		<td align="center" class="border-n">
+			<span class="list_tit">
+				Product
+			</span>
+		</td>
+		<td align="center" class="border-n">
+			<span class="list_tit">
+				<a class="product_menu" href="./material.php">Material</a>
+			</span>
+		</td>
+		<? } else {?>
+		<td align="center" class="border-n">
+			<span class="list_tit">
+				Product
+			</span>
+		</td>
+		<td align="center" class="border-n">
+			<span class="list_tit">
+				<a class="product_menu" href="./material.php">Material</a>
+			</span>
+		</td>
+		<? } ?>
+	</tr>
+</table>
 <table width="90%" align="center" border="0" cellspacing="0" cellpadding="0">
 	<tbody>
 	<?

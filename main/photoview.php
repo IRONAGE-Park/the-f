@@ -1,4 +1,4 @@
-
+<!--
 <style>
 .content-view-box::after {
     content:"";  position:absolute;  left:0; top:0;
@@ -51,7 +51,7 @@
     opacity: 0.8;
     z-index: -1;
 }
-</style>
+</style> -->
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -97,50 +97,51 @@
 						</td>
 						<td></td>
 					</tr>
+					<?
+					if($tablename == "tb_post1") {
+						$dir = '../'.$row_board['fileadd_folder']."/product";
+						// 핸들 획득
+						$handle  = opendir($dir);
+						$files = array();
+						if($handle) {
+							// 디렉터리에 포함된 파일을 저장한다.
+							while (false !== ($filename = readdir($handle))) {
+								if($filename == "." || $filename == ".." || $filename == ".DS_Store"){
+									continue;
+								}
+								// 파일인 경우만 목록에 추가한다.
+								if(is_file($dir . "/" . $filename)){
+									$files[] = $filename;
+								}
+							}
+							// 핸들 해제 
+							closedir($handle);
+							// 정렬, 역순으로 정렬하려면 rsort 사용
+							sort($files);
+						?>
+					<tr align="center" class="content-view-product">
+						<td colspan="3" class="content-view-product-wrap">
+							<div class="content-view-product-box">
+							<? for($i = 0; $i < count($files); $i++) { ?>
+								<a href="#">
+									<div class="content-view-product-element">
+										<img class="content-view-product-image" src="<?=$dir.'/'.$files[$i]?>">
+										<div class="content-view-product-name"><?=$files[$i]?></div>
+									</div>
+								</a>
+							<? } ?>
+							</div>
+						</td>
+					</tr>
+						<? }
+						} ?>
+					<tr>
+						<td colspan="3" align="center" class="last_border">
+							<a class="thef-button" href="javascript:history.back();">뒤로가기</a>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 		</td>
-	</tr>
-	<?
-
-		if($tablename == "tb_post1") {
-			$dir = '../'.$row_board['fileadd_folder']."/product";
-			// 핸들 획득
-			$handle  = opendir($dir);
-			$files = array();
-			if($handle) {
-				// 디렉터리에 포함된 파일을 저장한다.
-				while (false !== ($filename = readdir($handle))) {
-					if($filename == "." || $filename == ".." || $filename == ".DS_Store"){
-						continue;
-					}
-					// 파일인 경우만 목록에 추가한다.
-					if(is_file($dir . "/" . $filename)){
-						$files[] = $filename;
-					}
-				}
-				// 핸들 해제 
-				closedir($handle);
-				// 정렬, 역순으로 정렬하려면 rsort 사용
-				sort($files);
-	?>
-	<tr align="center" class="content-view-product">
-		<td class="content-view-product-wrap">
-			<div class="content-view-product-box">
-			<? for($i = 0; $i < count($files); $i++) { ?>
-				<a href="#">
-					<div class="content-view-product-element">
-						<img class="content-view-product-image" src="<?=$dir.'/'.$files[$i]?>">
-						<div class="content-view-product-name"><?=$files[$i]?></div>
-					</div>
-				</a>
-			<? } ?>
-			</div>
-		</td>
-	</tr>
-		<? }
-		} ?>
-	<tr>
-		<td align="center" class="last_border"><a class="thef-button" href="javascript:history.back();">뒤로가기</a></td>
 	</tr>
 </table>
