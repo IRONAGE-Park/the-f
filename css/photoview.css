@@ -103,6 +103,10 @@
 .content-view-product-image {
     width: 260px;
 }
+.content-view-product-name {
+    padding-top: 20px;
+    font-weight: bold;
+}
 @media (max-width: 1300px) {
     .material-image {
         width: 150px;
