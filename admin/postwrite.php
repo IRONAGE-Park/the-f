@@ -137,8 +137,9 @@
 							<tbody align="center">
 								<?php
 									foreach ($files as $f) {
-										echo "<tr><td><img height='60' src='$dir/$f'/></td>";
-										// echo "<td>".filesize($dir.'/'.$f)."</td></tr>";
+										if ($f !== "." && $f !== ".." && $f !== ".DS_Store" && substr($f, -4) !== ".txt") {
+											echo "<tr><td><img height='60' src='$dir/$f'/></td>";
+										}
 									}
 								?>
 							</tbody>
@@ -175,8 +176,9 @@
 							<tbody align="center">
 								<?php
 									foreach ($filesProduct as $f) {
-										echo "<tr><td><img height='60' src='$dirProduct/$f'/></td>";
-										// echo "<td>".filesize($dirProduct.'/'.$f)."</td></tr>";
+										if ($f !== "." && $f !== ".." && $f !== ".DS_Store" && substr($f, -4) !== ".txt") {
+											echo "<tr><td><img height='60' src='$dirProduct/$f'/></td>";
+										}
 									}
 								?>
 							</tbody>

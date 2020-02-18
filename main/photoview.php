@@ -111,7 +111,7 @@
 			if($handle) {
 				// 디렉터리에 포함된 파일을 저장한다.
 				while (false !== ($filename = readdir($handle))) {
-					if($filename == "." || $filename == ".." || $filename == ".DS_Store"){
+					if($filename == "." || $filename == ".." || $filename == ".DS_Store" || substr($filename, -4) == ".txt"){
 						continue;
 					}
 					// 파일인 경우만 목록에 추가한다.
@@ -127,14 +127,18 @@
 	<tr align="center" class="content-view-product">
 		<td class="content-view-product-wrap">
 			<div class="content-view-product-box">
-			<? for($i = 0; $i < count($files); $i++) { ?>
-				<a href="#">
+			<? for($i = 0; $i < count($files); $i++) { 
+				$link_file_name = $dir.'/'.substr($files[$i], 0, strrpos($files[$i], ".")).".txt";
+				if (file_exists($link_file_name)) {
+					$link_file_array = file_get_contents($link_file_name);
+					echo "<a target='_blank' href='${link_file_array}'>";
+				} else echo "<a href='#'>"; ?>
 					<div class="content-view-product-element">
 						<img class="content-view-product-image" src="<?=$dir.'/'.$files[$i]?>">
-						<div class="content-view-product-name"><?=$files[$i]?></div>
+						<div class="content-view-product-name"><?=substr($files[$i], 0, strrpos($files[$i], "_"))?></div>
 					</div>
 				</a>
-			<? } ?>
+				<? } ?>
 			</div>
 		</td>
 	</tr>
