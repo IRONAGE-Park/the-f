@@ -9,16 +9,18 @@ window.onload = function () {
   //loads file info into table
   function showFileMetadata() {
     var setup =
-      "<table style='border: none;'><tr><th>Image</th><th>Size</th></tr>";
+      "<table style='border: none; width: auto;'><tr><th>Image</th></tr>";
     var files = input.files;
     for (i = 0; i < files.length; i++) {
       imageId = "img" + i;
       setup +=
         '<tr><td id="' +
         imageId +
-        '"></td><td>' +
-        files[i].size +
-        " bytes </td></tr>";
+        '"></td>' +
+        // '<td>' +
+        // files[i].size +
+        // " bytes </td>" +
+        "</tr>";
     }
     setup += "</table>";
     document.querySelector("#table").innerHTML = setup;
@@ -27,18 +29,23 @@ window.onload = function () {
   }
   function showProductFileMetadata() {
     var setup =
-      "<table style='border: none;'><tr><th>Name</th><th>Image</th><th>Size</th></tr>";
+      "<table style='border: none; width: auto;'><tr><th>Image</th><th>Name</th><th>Link</th></tr>";
     var files = inputProduct.files;
     for (i = 0; i < files.length; i++) {
       imageId = "img0" + i;
       setup +=
-        "<tr><td>" +
-        files[i].name +
-        '</td><td id="' +
+        "<tr>" + 
+        // "<td>" +
+        // files[i].name +
+        //'</td>' +
+        '<td id="' +
         imageId +
-        '"></td><td>' +
-        files[i].size +
-        " bytes </td></tr>";
+        '"></td>' +
+        // '<td>' + files[i].size +
+        // " bytes </td>" +
+        "<td><input type='text' name='filename[]' size='15' require/></td>" +
+        "<td><input type='text' name='filelink[]' size='15' require/></td>" +
+        "</tr>";
     }
     setup += "</table>";
     document.querySelector("#tableProduct").innerHTML = setup;

@@ -97,7 +97,9 @@ if($uid) {
 				<div class="admin-manage-content-padding">
 					<?
 					foreach ($filesProduct as $f) {
-						echo "<img src='$dirProduct/$f'/>";
+						if($f !== "." && $f !== ".." && $f !== ".DS_Store" && substr($f, -4) !== ".txt") {
+							echo "<img src='$dirProduct/$f'/>";
+						}
 					}
 					?>
 				</div>

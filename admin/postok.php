@@ -44,10 +44,13 @@ function rmdir_all($dir) {
 	$fileadd_name	= $_FILES['fileadd']['name'];		//등록파일명
 	$fileadd		= $_FILES['fileadd']['tmp_name'];	//파일임지저장소 
 	$fileadd_size	= $_FILES['fileadd']['size'];		//파일크기
+	
 
 	$fileadd_product_name	= $_FILES['fileadd_product']['name'];		//등록파일명
 	$fileadd_product		= $_FILES['fileadd_product']['tmp_name'];	//파일임지저장소 
 	$fileadd_product_size	= $_FILES['fileadd_product']['size'];		//파일크기
+	$filename		= $_POST['filename'];
+	$filelink		= $_POST['filelink'];
 
 	if(!$reg_date) $reg_date = date("Y-m-d H:i:s");
 	$ip_addrs = getenv("REMOTE_ADDR");
@@ -67,18 +70,25 @@ function rmdir_all($dir) {
 			$row1 =  $db->fetch_row($query1);
 			if ($row1[0]) $new_uid = $row1[0] + 1; else $new_uid = 1;
 			
-			if (!is_dir($ROOT_PATH."/$tablefile/$new_uid")){  
+			if (!is_dir($ROOT_PATH."/$tablefile/$new_uid")){ // 폴더를 만듬
 				mkdir($ROOT_PATH."/$tablefile/$new_uid",0707);
 			}
-			$directory = $tablefile."/".$new_uid;
+			$directory = $tablefile."/".$new_uid; // 디렉토리의 주소(새로운 id로 갱신)
 			for ($fi = 0; $fi < count($fileadd); $fi++) {
 				// list($fileadd_name_1,$fileadd_size,$fileadd_org) = $common->Fileadd($new_uid, $directory, $fileadd[$fi], $fileadd_name[$fi]);
 				$common->Fileadd($fi, $directory."/banner", $fileadd[$fi], $fileadd_name[$fi]);
 			}
 			for ($fpi = 0; $fpi < count($fileadd_product); $fpi++) {
 				// list($fileadd_name_1,$fileadd_size,$fileadd_org) = $common->Fileadd($new_uid, $directory, $fileadd[$fpi], $fileadd_name[$fpi]);
-				$common->Fileadd($fpi, $directory."/product", $fileadd_product[$fpi], $fileadd_product_name[$fpi]);
+				$set_file_name = $filename[$fpi].'_'.$filelink[$fpi].'_'.$fpi;
+				$common->Fileadd($set_file_name, $directory."/product", $fileadd_product[$fpi], $fileadd_product_name[$fpi]);
+
+				// 하이퍼 링크 저장 데이터
+				$txtfile = fopen($ROOT_PATH.'/'.$directory."/product/".$set_file_name.".txt", 'w');
+				fwrite($txtfile, $filelink[$fpi]);
+				fclose($txtfile);
 			}
+			// 파일 저장
 			 
 			$tran_query[0] = "INSERT INTO $tablename (uid,title,content,ref,fileadd_folder,reg_date) VALUES ('$new_uid','$title','$content','$ref','$directory','$reg_date')";
 			$tran_result = $db->tran_query( $tran_query );
@@ -123,15 +133,22 @@ function rmdir_all($dir) {
 			// 			}
 			// 		}
 			// }
-			$directory = $tablefile."/".$uid;
+			$directory = $tablefile."/".$uid; // 디렉토리의 주소
 			for ($fi = 0; $fi < count($fileadd); $fi++) {
-				// list($fileadd_name_1,$fileadd_size,$fileadd_org) = $common->Fileadd($uid, $directory, $fileadd[$fi], $fileadd_name[$fi]);
+				// list($fileadd_name_1,$fileadd_size,$fileadd_org) = $common->Fileadd($new_uid, $directory, $fileadd[$fi], $fileadd_name[$fi]);
 				$common->Fileadd($fi, $directory."/banner", $fileadd[$fi], $fileadd_name[$fi]);
 			}
 			for ($fpi = 0; $fpi < count($fileadd_product); $fpi++) {
-				// list($fileadd_name_1,$fileadd_size,$fileadd_org) = $common->Fileadd($uid, $directory, $fileadd[$fpi], $fileadd_name[$fpi]);
-				$common->Fileadd($fpi, $directory."/product", $fileadd_product[$fpi], $fileadd_product_name[$fpi]);
+				// list($fileadd_name_1,$fileadd_size,$fileadd_org) = $common->Fileadd($new_uid, $directory, $fileadd[$fpi], $fileadd_name[$fpi]);
+				$set_file_name = $filename[$fpi].'_'.$fpi;
+				$common->Fileadd($set_file_name, $directory."/product", $fileadd_product[$fpi], $fileadd_product_name[$fpi]);
+				
+				// 하이퍼 링크 저장 데이터
+				$txtfile = fopen($ROOT_PATH.'/'.$directory."/product/".$set_file_name.".txt", 'w');
+				fwrite($txtfile, $filelink[$fpi]);
+				fclose($txtfile);
 			}
+			// 파일 저장
 			 
 			$tran_query[0] = "UPDATE $tablename SET title='$title',content='$content',ref='$ref',reg_date='$reg_date' WHERE uid='$uid'";
 			$tran_result = $db->tran_query( $tran_query );
