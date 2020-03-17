@@ -139,7 +139,7 @@ $file_path_1=$file_arr[sizeof($file_arr)-2];
 										</li>
 										<li class="sidebar-nav-element">
 											<div class="sidebar-nav-cover"></div>
-											<a target="_blank" href="https://www.vittz.co.kr/html/mainm.html">Shop</a>
+											<a target="_blank" href="https://www.vittz.co.kr/shop/page.html?id=48">Shop</a>
 										</li>
 										<li class="sidebar-nav-element">
 											<div class="sidebar-nav-cover"></div>
@@ -197,7 +197,7 @@ $file_path_1=$file_arr[sizeof($file_arr)-2];
 						<td style="padding:0 50px 0 0"><a class="header-nav-element" href="javascript:go_09();">About</a></td>
 						<td style="padding:0 50px 0 0"><a class="header-nav-element" href="javascript:go_09_01();">Portfolio</a></td>
 						<td style="padding:0 50px 0 0"><a class="header-nav-element" href="javascript:go_10();">Product</a></td>
-						<td style="padding:0 50px 0 0"><a class="header-nav-element" target="_blank" href="https://www.vittz.co.kr/html/mainm.html">Shop</a></td>
+						<td style="padding:0 50px 0 0"><a class="header-nav-element" target="_blank" href="https://www.vittz.co.kr/shop/page.html?id=48">Shop</a></td>
 						<td style="padding:0 50px 0 0"><a class="header-nav-element" href="javascript:go_09_02();">Q & A</a></td>
 						<td style="padding:0 130px 0 0">
 							<a class="header-nav-element" href="javascript:open_search()">

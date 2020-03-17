@@ -1,4 +1,4 @@
-
+<!-- 
 <style>
 .content-view-box::after {
     content:"";  position:absolute;  left:0; top:0;
@@ -51,7 +51,7 @@
     opacity: 0.8;
     z-index: -1;
 }
-</style>
+</style> -->
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>

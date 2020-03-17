@@ -16,7 +16,7 @@ include "../admin/conf/conf_main.php";
 					<tr>
 						<!--contents-->
 						<td valign="top" class="content">
-							<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+							<table width="80%" align="center" border="0" cellspacing="0" cellpadding="0">
 								<tr>
 									<td align="center" class="border-n">
 										<span class="list_tit">
