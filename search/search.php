@@ -39,7 +39,7 @@
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td valign="top" class="content">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<table width="100%" style="max-width: 1300px; margin: auto;" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td class="border-n">
 								<div class="search-request">Product </div>
@@ -54,7 +54,7 @@
 			</tr>
 			<tr>
 				<td valign="top" class="content">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<table width="100%" style="max-width: 1300px; margin: auto;" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td class="border-n">
 								<div class="search-request">Portfolio </div>
@@ -69,7 +69,7 @@
 			</tr>
 			<tr>
 				<td valign="top" class="content">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<table width="100%" style="max-width: 1300px; margin: auto;" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td class="border-n">
 								<div class="search-request">Q & A </div>

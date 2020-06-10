@@ -43,7 +43,10 @@ $file_path_1=$file_arr[sizeof($file_arr)-2];
 	<meta name="theme-color" content="#ffffff">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="../css/style.css" type="text/css">
-	<link rel="stylesheet" href="../css/header.css" type="text/css">
+	<link rel='stylesheet' type='text/css' href='../css/header.css'>
+	<? if ($mainpage) { ?> 
+		<link rel='stylesheet' type='text/css' href='../css/main_header.css'>
+	<? } ?>
 	<link rel="stylesheet" href="../css/search.css" type="text/css">
 	<link rel="stylesheet" href="../css/about.css" type="text/css">
 	<link rel="stylesheet" href="../css/material.css" type="text/css">

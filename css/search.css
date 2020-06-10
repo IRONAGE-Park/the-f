@@ -74,7 +74,11 @@
     height: 100px;
     vertical-align: middle;
 }
-.search-body-query-content { padding: 0 50px; }
+.search-body-query-content {
+    max-width: 1300px;
+    padding: 0 50px;
+    margin: auto;
+}
 .search-body-query-result {
     display: table-cell;
     width: 99%;
@@ -88,7 +92,11 @@
     text-align: right;
 }
 .search-body-new { padding: 50px 0; }
-.search-body-new-wrap { padding: 0 50px; }
+.search-body-new-wrap {
+    max-width: 1300px;
+    padding: 0 50px;
+    margin: auto;
+}
 .search-body-new-title { padding: 0 0 30px 0; font-weight: 100; font-size: 2.6em; color: #000; }
 .search-body-new-content form { position: relative; }
 .search-request {

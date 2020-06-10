@@ -6,6 +6,7 @@
     height: 80px;
     box-shadow: #999 1px 1px 10px;
 }
+.header-wrap {max-width: 1300px;}
 .header td {font-size: 20px;}
 .header-logo {height: 40px;}
 .header-nav:hover .header-nav-element {

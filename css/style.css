@@ -1,11 +1,11 @@
 @charset "utf-8";
 
 /*common*/
-@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+@import url(https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap);
 
 input, button {-webkit-border-radius: 0;-webkit-appearance:none;}
 
-body, td, th { margin:0; font-size: 14px; font-family: 'NanumSquare', sans-serif;}
+body, td, th { margin:0; font-size: 14px; font-family: 'Nanum Gothic', sans-serif;}
 body {overflow-x: hidden;}
 img {border: none; vertical-align:middle}
 * { box-sizing: content-box; }

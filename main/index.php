@@ -1,4 +1,7 @@
-<?php include "../INC/header.php"; ?>
+<?php 
+	$mainpage = true;
+	include "../INC/header.php";
+?>
 <?
 	#### 레이어 팝업 창 ##########
 	//$pop_wsql = " and mode='1'";
