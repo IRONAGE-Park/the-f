@@ -97,7 +97,7 @@
 				<td height="50" width="150">
 					<font class="T4">ㆍ내용</font>
 				</td>
-				<td colspan="2"><input type="text" name="content" size="80" maxlength="70"
+				<td colspan="2"><input type="text" name="content" size="80" maxlength="350"
 						<?if($row_board['content']){?>value="<?=$row_board['content']?>"
 					<?} ?>></td>
 			</tr>

@@ -80,7 +80,7 @@ function rmdir_all($dir) {
 			}
 			for ($fpi = 0; $fpi < count($fileadd_product); $fpi++) {
 				// list($fileadd_name_1,$fileadd_size,$fileadd_org) = $common->Fileadd($new_uid, $directory, $fileadd[$fpi], $fileadd_name[$fpi]);
-				$set_file_name = $filename[$fpi].'_'.$filelink[$fpi].'_'.$fpi;
+				$set_file_name = $filename[$fpi].'_'.$fpi;
 				$common->Fileadd($set_file_name, $directory."/product", $fileadd_product[$fpi], $fileadd_product_name[$fpi]);
 
 				// 하이퍼 링크 저장 데이터

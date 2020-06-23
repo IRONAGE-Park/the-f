@@ -1,11 +1,11 @@
 @charset "utf-8";
 
 /*common*/
-@import url(https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap);
 
 input, button {-webkit-border-radius: 0;-webkit-appearance:none;}
 
-body, td, th { margin:0; font-size: 14px; font-family: 'Nanum Gothic', sans-serif;}
+body, td, th { margin:0; font-size: 14px; font-family: 'Noto Sans KR', sans-serif;}
 body {overflow-x: hidden;}
 img {border: none; vertical-align:middle}
 * { box-sizing: content-box; }
